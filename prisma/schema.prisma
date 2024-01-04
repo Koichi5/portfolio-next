@@ -6,6 +6,21 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+// vercel Data
+// vercel link
+// vercel env pull .env.development.local
+// vercel env pull .env
+// npm install prisma --save-dev
+// npx prisma db push
+// insert into "AboutProfile" (name, value) values ('Name', '岸本 浩一智 ( Kishimoto Koichi )'), ('Belonging', '関西大学経済学部'), ('Speciality', 'モバイルアプリケーション開発')
+// npx prisma generate
+model AboutProfile {
+  id Int @id @default(autoincrement())
+  name String
+  value String
 }
