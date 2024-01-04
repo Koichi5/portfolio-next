@@ -12,6 +12,7 @@ datasource db {
 }
 
 // vercel Data
+// https://vercel.com/guides/nextjs-prisma-postgres
 // vercel link
 // vercel env pull .env.development.local
 // vercel env pull .env
@@ -23,4 +24,93 @@ model AboutProfile {
   id Int @id @default(autoincrement())
   name String
   value String
+}
+
+model AboutMyHistory {
+  id Int @id @default(autoincrement())
+  date String
+  value String
+}
+
+model SkillLanguageProficiency {
+  id Int @id @default(autoincrement())
+  name String
+  proficiency Int
+}
+
+model SkillFrameworkProficiency {
+  id Int @id @default(autoincrement())
+  name String
+  proficiency Int
+}
+
+model SkillOtherProficiency {
+  id Int @id @default(autoincrement())
+  name String
+  proficiency Int
+}
+
+// A Work can have many WorkSources
+model Work {
+  id Int @id @default(autoincrement())
+  title String
+  imagePath String
+  detail String
+  point String
+  tech String?
+  workSources WorkSource[]
+  // Can't define nullable string list
+  // sourceUrls String[]
+  // sourceImageUrls String[]
+}
+
+// A WorkSource can have one work
+model WorkSource {
+  id Int @id @default(autoincrement())
+  sourceUrls String[]
+  sourceImageUrls String[]
+  Work Work? @relation(fields: [workSourceId], references: [id])
+  workSourceId Int?
+}
+
+model Contest {
+  id Int @id @default(autoincrement())
+  title String
+  imagePath String
+  detail String
+  point String
+  tech String?
+  contestSources ContestSource[]
+  // Can't define nullable string list
+  // sourceUrls String[]
+  // sourceImageUrls String[]
+}
+
+model ContestSource {
+  id Int @id @default(autoincrement())
+  sourceUrls String[]
+  sourceImageUrls String[]
+  Contest Contest? @relation(fields: [contestSourceId], references: [id])
+  contestSourceId Int?
+}
+
+model ContactEmailAndPhone {
+  id Int @id @default(autoincrement())
+  name String
+  value String
+}
+
+model ContactOthers {
+  id Int @id @default(autoincrement())
+  name String
+  ContactAccount ContactAccount[]
+}
+
+model ContactAccount {
+  id Int @id @default(autoincrement())
+  name String
+  accountName String
+  accountUrl String
+  ContactOthers ContactOthers? @relation(fields: [contactOtherId], references: [id])
+  contactOtherId Int?
 }

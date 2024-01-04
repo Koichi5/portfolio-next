@@ -121,19 +121,18 @@
 // }
 
 // pages/page.tsx
-'use client'
-import { AboutProfile } from '@prisma/client';
+'use client';
 import React, { useState } from 'react';
-import { config } from './lib/config';
+import { AboutProfile } from '@prisma/client';
 
-function Page() {
+function Home() {
   const [aboutProfiles, setAboutProfiles] = useState<AboutProfile[]>([]);
   const [loading, setLoading] = useState(false);
 
   const fetchAboutProfiles = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${config.apiPrefix + config.apiHost}/pages/api/about_profile`);
+      const response = await fetch('/api/aboutProfiles');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -152,9 +151,8 @@ function Page() {
         {loading ? 'Loading...' : 'Get About Profiles'}
       </button>
       <div>
-        {aboutProfiles.map(profile => (
+        {aboutProfiles.map((profile) => (
           <div key={profile.id}>
-            {/* Render about profile data */}
             <p>{profile.name}</p>
           </div>
         ))}
@@ -163,4 +161,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default Home;
