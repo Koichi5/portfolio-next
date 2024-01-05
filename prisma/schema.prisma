@@ -85,6 +85,7 @@ model WorkSource {
 model Contest {
   id Int @id @default(autoincrement())
   title String
+  attribute String
   imagePath String
   detail String
   point String

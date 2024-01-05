@@ -145,6 +145,35 @@ values
         '詳細については公表できませんが、今まで触れていなかった技術に触れることができました。メンターさんやメンバーの方々の支えもあり、いろいろな方のお話を伺うことができ、今後の開発の軸になるような考え方も得られ、非常に貴重な経験でした',
     )
 
+-- Contest
+insert into
+    "Contest" (
+        title,
+        attribute,
+        imagePath,
+        detail,
+        point,
+        tech,
+        contestSources,
+    )
+values
+    (
+        'ChatHub',
+        'ハッカソン',
+        'https://lh3.googleusercontent.com/pw/AIL4fc8Ec79zgvgci1F14I9M8W5o1Kx41vqfJORKf2RQi35ycZwRDbsBFMIT3cRH3f2C74sBpjdOnq5c_D_xxD4UFPtNsMwmLTSZ2y0_ZRdaOoY0XPlFIGqF5HoCEAJkZlBe5OQXWhNQ2ptUO66ER9MlPTU0=w500-h500-s-no?authuser=0',
+        '2023年2月26日から28日にかけて行われた「関西ビギナーズハッカソン」において開発した課題解決プラットフォームアプリ \n 最終的に優良賞をいただきました',
+        'テックリードとして要件定義、データベース設計、UI,UX設計、コーディングに加え、メンバーにFlutterの基礎からFirebase連携まで教えたり、機能ごとにメンバーに役割を割り振ったり、GitHubの使用方法を教えたりなどしました',
+        'Dart, Flutter, Firebase',
+        []
+    ),
+    (
+        '起業家甲子園',
+        'ビジネスコンテスト',
+        'https://lh3.googleusercontent.com/pw/AIL4fc8-7E-PfjVUDteYcLzYwSdv_5uEn9GmEctWmj5O92h9s09CBqE7-raN0zLEBHypOlxHyLvqndFSMWN0bOXiM_nk5_zeVwC6X9LjA_6zY3ttTuy1qnnlUDXSM2P8e7w8OIQeRH7gNEEL5xPPcqAT6BfU=w940-h788-s-no?authuser=0',
+        '2022年3月8日に行われた「令和3年度 起業家甲子園」にて近畿地方代表として出場し、「IBM BlueHub賞」「ABCドリームベンチャーズ賞」「 Z Venture Capital賞」をいただきました',
+        'この経験を通じてプロダクトを企画から開発まで行うことで、通常の開発ではできない経験ができました。アプリ設計能力に関しては、ユーザーのターゲットのペルソナを可能な限り正確に思い浮かべるだけでなく、ターゲットが使用する時間、場所、使用する時の心境まで考えて設計することで、よりユーザーに受け入れられやすいアプリを設計することができると考えました。デザイン能力に関しては、アプリを打ち出す際にそのターゲットの使用するSNSを分析したり、ターゲットに適したデザインかどうかを考えることで効果的にユーザーにアプローチして、より多くのユーザーにサービスを使用してもらえるようになると考えました。営業能力に関しては、自身のサービスが最も打ち出すべきポイントは何かを徹底的に考えることで、そのサービスを本当に必要としているターゲットを考えることができ、結果的に正確なペルソナ設計につながり、必要としているターゲットに正確にサービスを届けられるようになると考えました',
+    )
+
 -- ContactEmailAndPhone
 insert into
     "ContactEmailAndPhone" (name, value)
