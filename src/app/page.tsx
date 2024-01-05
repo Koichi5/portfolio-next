@@ -131,6 +131,7 @@ import {
   SkillFrameworkProficiency,
   SkillLanguageProficiency,
   SkillOtherProficiency,
+  Work,
 } from "@prisma/client";
 
 function Home() {
@@ -146,8 +147,12 @@ function Home() {
   const [skillOtherProficiencies, setSkillOtherProficiencies] = useState<
     SkillOtherProficiency[]
   >([]);
-  const [contactEmailAndPhone, setContactEmailAndPhone] = useState<ContactEmailAndPhone[]>([]);
+  const [contactEmailAndPhone, setContactEmailAndPhone] = useState<
+    ContactEmailAndPhone[]
+  >([]);
   const [contactOthers, setContactOthers] = useState<ContactOthers[]>([]);
+  const [works, setWorks] = useState<Work[]>([]);
+
   const [loading, setLoading] = useState(false);
 
   // about profiles
@@ -235,10 +240,24 @@ function Home() {
       const data = await response.json();
       setSkillOtherProficiencies(data);
     } catch (error) {
-      console.error(
-        "Failed to fetch about skill other proficiencies:",
-        error
-      );
+      console.error("Failed to fetch about skill other proficiencies:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // work
+  const fetchWorks = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("/api/myWorks");
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setWorks(data);
+    } catch (error) {
+      console.error("Failed to fetch work:", error);
     } finally {
       setLoading(false);
     }
@@ -255,34 +274,28 @@ function Home() {
       const data = await response.json();
       setContactEmailAndPhone(data);
     } catch (error) {
-      console.error(
-        "Failed to fetch contact email and phone:",
-        error
-      );
+      console.error("Failed to fetch contact email and phone:", error);
     } finally {
       setLoading(false);
     }
   };
 
-    // contact others
-    const fetchContactOthers = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch("/api/contactOthers");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-        setContactOthers(data);
-      } catch (error) {
-        console.error(
-          "Failed to fetch contact others:",
-          error
-        );
-      } finally {
-        setLoading(false);
+  // contact others
+  const fetchContactOthers = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("/api/contactOthers");
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
       }
-    };
+      const data = await response.json();
+      setContactOthers(data);
+    } catch (error) {
+      console.error("Failed to fetch contact others:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
@@ -349,6 +362,23 @@ function Home() {
         ))}
       </div>
 
+      {/* works */}
+      <button onClick={fetchWorks} disabled={loading}>
+        {loading ? "Loading..." : "Get Works"}
+      </button>
+      <div>
+        {works.map((work) => (
+          <div key={work.id}>
+            <p>{work.title}</p>
+            <p>{work.attribute}</p>
+            <p>{work.detail}</p>
+            <p>{work.point}</p>
+            <p>{work.imagePath}</p>
+            <p>{work.tech}</p>
+          </div>
+        ))}
+      </div>
+
       {/* contact email and phone */}
       <button onClick={fetchContactEmailAndPhone} disabled={loading}>
         {loading ? "Loading..." : "Get Contact Email And Phone"}
@@ -368,9 +398,7 @@ function Home() {
       </button>
       <div>
         {contactOthers.map((contact) => (
-          <div key={contact.id}>
-            {/* <p>{contact.name}</p> */}
-          </div>
+          <div key={contact.id}>{/* <p>{contact.name}</p> */}</div>
         ))}
       </div>
     </div>
