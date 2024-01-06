@@ -137,6 +137,8 @@ import Welcome from "@/pages/welcome/welcome";
 import About from "@/pages/about/about";
 import Skills from "@/pages/skills/skills";
 import Contact from "@/pages/contact/contact";
+import Works from "@/pages/works/works";
+import Contests from "@/pages/contest/contest";
 
 function Home() {
   const [aboutProfiles, setAboutProfiles] = useState<AboutProfile[]>([]);
@@ -306,6 +308,8 @@ function Home() {
       <Welcome />
       <About />
       <Skills />
+      <Works />
+      <Contests />
       <Contact />
       {/* about profiles */}
       <button onClick={fetchAboutProfiles} disabled={loading}>
