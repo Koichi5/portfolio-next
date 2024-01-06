@@ -133,6 +133,10 @@ import {
   SkillOtherProficiency,
   Work,
 } from "@prisma/client";
+import Welcome from "@/pages/welcome/welcome";
+import About from "@/pages/about/about";
+import Skills from "@/pages/skills/skills";
+import Contact from "@/pages/contact/contact";
 
 function Home() {
   const [aboutProfiles, setAboutProfiles] = useState<AboutProfile[]>([]);
@@ -299,6 +303,10 @@ function Home() {
 
   return (
     <div>
+      <Welcome />
+      <About />
+      <Skills />
+      <Contact />
       {/* about profiles */}
       <button onClick={fetchAboutProfiles} disabled={loading}>
         {loading ? "Loading..." : "Get About Profiles"}
