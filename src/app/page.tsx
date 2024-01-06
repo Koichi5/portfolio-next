@@ -382,7 +382,7 @@ function Home() {
         {works.map((work) => (
           <div key={work.id}>
             <p>{work.title}</p>
-            <p>{work.attribute}</p>
+            {/* <p>{work.attribute}</p> */}
             <p>{work.detail}</p>
             <p>{work.point}</p>
             <p>{work.image_path}</p>

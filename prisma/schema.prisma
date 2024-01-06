@@ -67,22 +67,7 @@ model Work {
   tech String?
   source_urls String[]
   source_image_urls String[]
-  // workSources WorkSource[]
-  // Can't define nullable string list
-  // sourceUrls String[]
-  // sourceImageUrls String[]
 }
-
-// A WorkSource can have one work
-// TODO: insert Work in each WorkSource
-// insert into "WorkSource" (sourceUrls, sourceImageUrls, Work) values ([])
-// model WorkSource {
-//   id Int @id @default(autoincrement())
-//   sourceUrls String[]
-//   sourceImageUrls String[]
-//   Work Work? @relation(fields: [workSourceId], references: [id])
-//   workSourceId Int?
-// }
 
 model Contest {
   id Int @id @default(autoincrement())
@@ -94,19 +79,7 @@ model Contest {
   tech String?
   source_urls String[]
   source_image_urls String[]
-  // contestSources ContestSource[]
-  // Can't define nullable string list
-  // sourceUrls String[]
-  // sourceImageUrls String[]
 }
-
-// model ContestSource {
-//   id Int @id @default(autoincrement())
-//   sourceUrls String[]
-//   sourceImageUrls String[]
-//   Contest Contest? @relation(fields: [contestSourceId], references: [id])
-//   contestSourceId Int?
-// }
 
 // insert into "ContactEmailAndPhone" (name, value) values ('Email', 'koichi20021217@gmail.com'), ('Phone', '080-4558-9517')
 model ContactEmailAndPhone {

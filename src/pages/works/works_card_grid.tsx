@@ -203,7 +203,8 @@ const WorksCardGrid = () => {
           <CardWithDialog
             imageSrc={work.image_path}
             title={work.title}
-            attribute={work.attribute}
+            // attribute={work.attribute}
+            attribute="開発"
             firstContentTitle={'DETAIL'}
             firstContent={work.detail}
             secondContentTitle={"POINT"}
