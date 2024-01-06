@@ -1,6 +1,6 @@
 import CardWithDialog from "@/components/card_with_dialog";
 import ImageLink from "@/components/image_link";
-import Grid from "@material-ui/core/Grid";
+import Grid from "@mui/material/Grid";
 import { Work } from "@prisma/client";
 import { useEffect, useState } from "react";
 
