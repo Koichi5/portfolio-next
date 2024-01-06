@@ -38,10 +38,10 @@ const SkillsLanguages = () => {
             <TableItem
               keyValue={language.name}
               Value={
-                "★".repeat(language.proficiency) +
-                "☆".repeat(5 - language.proficiency)
+                " ★ ".repeat(language.proficiency) +
+                " ☆ ".repeat(5 - language.proficiency)
               }
-              paddingBetween={150}
+              paddingBetween={230}
             />
           </div>
         ))}

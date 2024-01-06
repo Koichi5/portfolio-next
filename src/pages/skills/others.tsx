@@ -38,10 +38,10 @@ const SkillsOthers = () => {
             <TableItem
               keyValue={other.name}
               Value={
-                "★".repeat(other.proficiency) +
-                "☆".repeat(5 - other.proficiency)
+                " ★ ".repeat(other.proficiency) +
+                " ☆ ".repeat(5 - other.proficiency)
               }
-              paddingBetween={150}
+              paddingBetween={230}
             />
           </div>
         ))}

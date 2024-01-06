@@ -40,7 +40,7 @@ const AboutMyHistoryTable = () => {
           <TableItem
             keyValue={myHistory.date}
             Value={myHistory.value}
-            paddingBetween={150}
+            paddingBetween={230}
           />
           </div>
         ))}

@@ -38,10 +38,10 @@ const SkillsFrameworks = () => {
             <TableItem
               keyValue={framework.name}
               Value={
-                "★".repeat(framework.proficiency) +
-                "☆".repeat(5 - framework.proficiency)
+                " ★ ".repeat(framework.proficiency) +
+                " ☆ ".repeat(5 - framework.proficiency)
               }
-              paddingBetween={150}
+              paddingBetween={230}
             />
           </div>
         ))}

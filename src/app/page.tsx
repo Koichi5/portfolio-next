@@ -381,7 +381,7 @@ function Home() {
             <p>{work.attribute}</p>
             <p>{work.detail}</p>
             <p>{work.point}</p>
-            <p>{work.imagePath}</p>
+            <p>{work.image_path}</p>
             <p>{work.tech}</p>
           </div>
         ))}

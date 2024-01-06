@@ -61,11 +61,13 @@ model Work {
   id Int @id @default(autoincrement())
   title String
   attribute String
-  imagePath String
+  image_path String
   detail String
   point String
   tech String?
-  workSources WorkSource[]
+  source_urls String[]
+  source_image_urls String[]
+  // workSources WorkSource[]
   // Can't define nullable string list
   // sourceUrls String[]
   // sourceImageUrls String[]
@@ -74,35 +76,37 @@ model Work {
 // A WorkSource can have one work
 // TODO: insert Work in each WorkSource
 // insert into "WorkSource" (sourceUrls, sourceImageUrls, Work) values ([])
-model WorkSource {
-  id Int @id @default(autoincrement())
-  sourceUrls String[]
-  sourceImageUrls String[]
-  Work Work? @relation(fields: [workSourceId], references: [id])
-  workSourceId Int?
-}
+// model WorkSource {
+//   id Int @id @default(autoincrement())
+//   sourceUrls String[]
+//   sourceImageUrls String[]
+//   Work Work? @relation(fields: [workSourceId], references: [id])
+//   workSourceId Int?
+// }
 
 model Contest {
   id Int @id @default(autoincrement())
   title String
   attribute String
-  imagePath String
+  image_path String
   detail String
   point String
   tech String?
-  contestSources ContestSource[]
+  source_urls String[]
+  source_image_urls String[]
+  // contestSources ContestSource[]
   // Can't define nullable string list
   // sourceUrls String[]
   // sourceImageUrls String[]
 }
 
-model ContestSource {
-  id Int @id @default(autoincrement())
-  sourceUrls String[]
-  sourceImageUrls String[]
-  Contest Contest? @relation(fields: [contestSourceId], references: [id])
-  contestSourceId Int?
-}
+// model ContestSource {
+//   id Int @id @default(autoincrement())
+//   sourceUrls String[]
+//   sourceImageUrls String[]
+//   Contest Contest? @relation(fields: [contestSourceId], references: [id])
+//   contestSourceId Int?
+// }
 
 // insert into "ContactEmailAndPhone" (name, value) values ('Email', 'koichi20021217@gmail.com'), ('Phone', '080-4558-9517')
 model ContactEmailAndPhone {
@@ -114,7 +118,7 @@ model ContactEmailAndPhone {
 // insert into "ContactOthers" (contactName, accoutName, accountUrl) values ('Twitter', 'koichi_mobile', 'https://twitter.com/koichi_mobile'), ('Zenn', 'koichi_51', 'https://zenn.dev/koichi_51'), ('Qiita', 'KKoichi51', 'https://qiita.com/KKoichi51'), ('GitHub', 'Koichi5', 'https://github.com/Koichi5')
 model ContactOthers {
   id Int @id @default(autoincrement())
-  contactName String   // ex. Twitter
-  accoutName String
-  accountUrl String
+  contact_name String   // ex. Twitter
+  accout_name String
+  account_url String
 }

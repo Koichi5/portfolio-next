@@ -2,7 +2,7 @@
 
 import SubTitle from "@/components/sub_title";
 import TableItem from "@/components/table_item";
-import { AboutProfile, ContactEmailAndPhone } from "@prisma/client";
+import { ContactEmailAndPhone } from "@prisma/client";
 import { useEffect, useState } from "react";
 
 const ContactEmailAndPhoneTable = () => {
@@ -40,7 +40,7 @@ const ContactEmailAndPhoneTable = () => {
           <TableItem
             keyValue={emailAndPhone.name}
             Value={emailAndPhone.value}
-            paddingBetween={150}
+            paddingBetween={230}
           />
           </div>
         ))}

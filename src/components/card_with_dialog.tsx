@@ -1,62 +1,85 @@
 import { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import {
-  Card,
-  CardActionArea,
-  CardMedia,
-  CardContent,
-  Typography,
-  IconButton,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-} from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
+import { styled } from "@mui/material/styles";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import CloseIcon from "@mui/icons-material/Close";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 500,
-    margin: 30,
-  },
-  media: {
-    height: 350,    
-  },
-  dialoigMedia: {
-    height: 400,
-    objectFit: "fill",
-  },
-  dialogPaper: {
-    minWidth: 500,
-    maxWidth: 700,
-    borderRadius: "15px",
-    padding: theme.spacing(2),
-  },
-  dialogTitle: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingBottom: 0,
-  },
-  closeButton: {
-    position: "absolute",
-    right: theme.spacing(1),
-    top: theme.spacing(1),
-    color: theme.palette.grey[500],
-  },
-  subtitle: {
-    fontFamily: "Chogokuboso-Gothic",
-    fontSize: "0.8rem",
-    borderBottom: "1px solid rgba(32, 36, 53, 0.741)",
-    textDecorationColor: "#FFFFFF",
-    paddingBottom: "0.8rem",
-    letterSpacing: "0.2rem",
-  },
-  content: {
-    paddingTop: 20,
-    paddingBottom: 40,
-    fontSize: 18,
-  },
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     maxWidth: 500,
+//     margin: 30,
+//   },
+//   media: {
+//     height: 350,
+//   },
+//   dialoigMedia: {
+//     height: 400,
+//     objectFit: "fill",
+//   },
+//   dialogPaper: {
+//     minWidth: 500,
+//     maxWidth: 700,
+//     borderRadius: "15px",
+//     padding: theme.spacing(2),
+//   },
+//   dialogTitle: {
+//     display: "flex",
+//     justifyContent: "space-between",
+//     alignItems: "center",
+//     paddingBottom: 0,
+//   },
+//   closeButton: {
+//     position: "absolute",
+//     right: theme.spacing(1),
+//     top: theme.spacing(1),
+//     color: theme.palette.grey[500],
+//   },
+//   subtitle: {
+//     fontFamily: "Chogokuboso-Gothic",
+//     fontSize: "0.8rem",
+//     borderBottom: "1px solid rgba(32, 36, 53, 0.741)",
+//     textDecorationColor: "#FFFFFF",
+//     paddingBottom: "0.8rem",
+//     letterSpacing: "0.2rem",
+//   },
+// }));
+
+const CustomDialog = styled(Dialog)(({ theme }) => ({
+  minWidth: 500,
+  maxWidth: 700,
+  borderRadius: "15px",
+  padding: theme.spacing(2),
+}));
+
+const CustomDialogTitle = styled(DialogTitle)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  paddingBottom: 0,
+}));
+
+const CustomCloseIconButton = styled(IconButton)(({ theme }) => ({
+  position: "absolute",
+  right: theme.spacing(1),
+  top: theme.spacing(1),
+  color: theme.palette.grey[500],
+}));
+
+const CustomSubtitle = styled("span")(({ theme }) => ({
+  fontFamily: "Chogokuboso-Gothic",
+  fontSize: "0.8rem",
+  borderBottom: "1px solid rgba(32, 36, 53, 0.741)",
+  textDecorationColor: "#FFFFFF",
+  paddingBottom: "0.8rem",
+  letterSpacing: "0.2rem",
 }));
 
 interface CardProps {
@@ -88,7 +111,7 @@ function CardWithDialog({
   fourthContent,
   fifthContent,
 }: CardProps) {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -100,9 +123,19 @@ function CardWithDialog({
   };
 
   return (
-    <Card className={classes.root}>
+    <Card
+      sx={{
+        maxWidth: 500,
+        margin: 30,
+      }}
+    >
       <CardActionArea onClick={handleOpen}>
-        <CardMedia className={classes.media} component="img" src={imageSrc} title={title} />
+        <CardMedia
+          sx={{ height: 350 }}
+          component="img"
+          src={imageSrc}
+          title={title}
+        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {title}
@@ -112,24 +145,31 @@ function CardWithDialog({
           </Typography>
         </CardContent>
       </CardActionArea>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        classes={{ paper: classes.dialogPaper }}
-      >
-        <DialogTitle className={classes.dialogTitle}>
+      <CustomDialog open={open} onClose={handleClose}>
+        <CustomDialogTitle>
           <Typography variant="h4">{title}</Typography>
-          <IconButton className={classes.closeButton} onClick={handleClose}>
+          <CustomCloseIconButton onClick={handleClose}>
             <CloseIcon />
-          </IconButton>
-        </DialogTitle>
+          </CustomCloseIconButton>
+        </CustomDialogTitle>
         <DialogContent>
-          <CardMedia className={classes.dialoigMedia} image={imageSrc} title={title} />
+          <CardMedia
+            sx={{
+              height: 400,
+              objectFit: "fill",
+            }}
+            image={imageSrc}
+            title={title}
+          />
           <Typography color="textPrimary" gutterBottom>
-            <span className={classes.subtitle}>{firstContentTitle}</span>
+            <CustomSubtitle>{firstContentTitle}</CustomSubtitle>
           </Typography>
           <Typography
-            className={classes.content}
+            sx={{
+              paddingTop: 20,
+              paddingBottom: 40,
+              fontSize: 18,
+            }}
             variant="body1"
             color="textSecondary"
             component="p"
@@ -137,10 +177,14 @@ function CardWithDialog({
             {firstContent}
           </Typography>
           <Typography color="textPrimary" gutterBottom>
-            <span className={classes.subtitle}>{secondContentTitle}</span>
+            <CustomSubtitle>{secondContentTitle}</CustomSubtitle>
           </Typography>
           <Typography
-            className={classes.content}
+            sx={{
+              paddingTop: 20,
+              paddingBottom: 40,
+              fontSize: 18,
+            }}
             variant="body1"
             color="textSecondary"
             component="p"
@@ -148,10 +192,14 @@ function CardWithDialog({
             {secondContent}
           </Typography>
           <Typography color="textPrimary" gutterBottom>
-            <span className={classes.subtitle}>{thirdContentTitle}</span>
+            <CustomSubtitle>{thirdContentTitle}</CustomSubtitle>
           </Typography>
           <Typography
-            className={classes.content}
+            sx={{
+              paddingTop: 20,
+              paddingBottom: 40,
+              fontSize: 18,
+            }}
             variant="body1"
             color="textSecondary"
             component="p"
@@ -159,10 +207,14 @@ function CardWithDialog({
             {thirdContent}
           </Typography>
           <Typography color="textPrimary" gutterBottom>
-            <span className={classes.subtitle}>{fourthContentTitle}</span>
+            <CustomSubtitle>{fourthContentTitle}</CustomSubtitle>
           </Typography>
           <Typography
-            className={classes.content}
+            sx={{
+              paddingTop: 20,
+              paddingBottom: 40,
+              fontSize: 18,
+            }}
             variant="body1"
             color="textSecondary"
             component="p"
@@ -170,7 +222,11 @@ function CardWithDialog({
             {fourthContent}
           </Typography>
           <Typography
-            className={classes.content}
+            sx={{
+              paddingTop: 20,
+              paddingBottom: 40,
+              fontSize: 18,
+            }}
             variant="body1"
             color="textSecondary"
             component="p"
@@ -181,7 +237,7 @@ function CardWithDialog({
         <DialogActions>
           <div />
         </DialogActions>
-      </Dialog>
+      </CustomDialog>
     </Card>
   );
 }

@@ -40,7 +40,7 @@ const AboutProfileTable = () => {
           <TableItem
             keyValue={profile.name}
             Value={profile.value}
-            paddingBetween={150}
+            paddingBetween={230}
           />
           </div>
         ))}
