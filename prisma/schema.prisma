@@ -1,97 +1,76 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-// vercel Data
-// https://vercel.com/guides/nextjs-prisma-postgres
-// vercel link
-// vercel env pull .env.development.local
-// vercel env pull .env
-// npm install prisma --save-dev
-// npx prisma db push
-
-// https://vercel.com/koichi5s-projects
-// insert into "AboutProfile" (name, value) values ('Name', '岸本 浩一智 ( Kishimoto Koichi )'), ('Belonging', '関西大学経済学部'), ('Speciality', 'モバイルアプリケーション開発')
-// npx prisma generate
 model AboutProfile {
-  id Int @id @default(autoincrement())
-  name String
+  id    Int    @id @default(autoincrement())
+  name  String
   value String
 }
 
-// insert into "AboutMyHistory" (date, value) values ('2021. 4', '関西大学入学'), ('2021. 11', 'プログラミング（Web制作）を本格的に学習開始'), ('2021. 12', 'ビジネスコンテスト「ミライノピッチ」で企業賞複数受賞'), ('2021. 12', '丸井グループ最年少アクセラレーター選出'), ('2022. 2 - 2022. 10', '株式会社Voteee Technologies にて Flutter のプログラミング講師としてインターンを経験'), ('2022. 3', '起業家甲子園近畿地方代表、企業賞複数受賞'), ('2022. 8 - 2023. 3', '関西大学の社会課題解決プログラム「山岡塾」に参加'), ('2023. 2', '関西ビギナーズハッカソンにて優良賞受賞'), ('2023. 2 - 2023. 4', '株式会社Wanderlust にて Flutter エンジニアとしてチーム開発を経験'), ('2023. 4', 'Flutter を用いた個人開発で情報科目学習サポートアプリ「Tech Journey」を Google Play ストアへリリース'), ('2023. 5 -', '株式会社はんぽさき にて Flutter エンジニアとしてチーム開発を経験'), ('2023. 7', 'Swift を用いた個人開発で買い物サポートアプリ「買い物ナビ」を App Store へリリース'), ('2023. 8', '株式会社 Sansan の 「Sansan Tech Internship SPARK2023」に参加し'), ('2023. 10', '株式会社 リクルート のサマーインターンに参加')
 model AboutMyHistory {
-  id Int @id @default(autoincrement())
-  date String
+  id    Int    @id @default(autoincrement())
+  date  String
   value String
 }
 
-// insert into "SkillLanguageProficiency" (name, proficiency) values ('Dart', 5), ('Swift', 4), ('Python', 4), ('JavaScript', 3), ('TypeScript', 3), ('R', 1), ('Unity', 1)
 model SkillLanguageProficiency {
-  id Int @id @default(autoincrement())
-  name String
+  id          Int    @id @default(autoincrement())
+  name        String
   proficiency Int
 }
 
-// insert into "SkillFrameworkProficiency" (name, proficiency) values ('Flutter', 5), ('SwiftUI', 4), ('React', 3), ('Numpy', 3), ('Pandas', 3), ('TensorFlow', 2), ('UIKit', 2), ('Reality Componser Pro', 2), ('ARKit', 2)
 model SkillFrameworkProficiency {
-  id Int @id @default(autoincrement())
-  name String
+  id          Int    @id @default(autoincrement())
+  name        String
   proficiency Int
 }
 
-// insert into "SkillOtherProficiency" (name, proficiency) values ('Firebase', 4), ('GitHub', 4), ('Slack', 4), ('Figma', 3), ('Canva', 3), ('Blender', 3)
 model SkillOtherProficiency {
-  id Int @id @default(autoincrement())
-  name String
+  id          Int    @id @default(autoincrement())
+  name        String
   proficiency Int
 }
 
-// A Work can have many WorkSources
 model Work {
-  id Int @id @default(autoincrement())
-  title String
-  attribute String
-  image_path String
-  detail String
-  point String
-  tech String?
-  source_urls String[]
+  id                Int      @id @default(autoincrement())
+  title             String
+  attribute         String
+  image_path        String
+  detail            String
+  point             String
+  tech              String?
+  source_urls       String[]
   source_image_urls String[]
 }
 
 model Contest {
-  id Int @id @default(autoincrement())
-  title String
-  attribute String
-  image_path String
-  detail String
-  point String
-  tech String?
-  source_urls String[]
+  id                Int      @id @default(autoincrement())
+  title             String
+  attribute         String
+  image_path        String
+  detail            String
+  point             String
+  tech              String?
+  source_urls       String[]
   source_image_urls String[]
 }
 
-// insert into "ContactEmailAndPhone" (name, value) values ('Email', 'koichi20021217@gmail.com'), ('Phone', '080-4558-9517')
 model ContactEmailAndPhone {
-  id Int @id @default(autoincrement())
-  name String
+  id    Int    @id @default(autoincrement())
+  name  String
   value String
 }
 
-// insert into "ContactOthers" (contactName, accoutName, accountUrl) values ('Twitter', 'koichi_mobile', 'https://twitter.com/koichi_mobile'), ('Zenn', 'koichi_51', 'https://zenn.dev/koichi_51'), ('Qiita', 'KKoichi51', 'https://qiita.com/KKoichi51'), ('GitHub', 'Koichi5', 'https://github.com/Koichi5')
 model ContactOthers {
-  id Int @id @default(autoincrement())
-  contact_name String   // ex. Twitter
-  accout_name String
-  account_url String
+  id           Int    @id @default(autoincrement())
+  contact_name String
+  accout_name  String
+  account_url  String
 }
