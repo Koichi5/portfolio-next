@@ -28,7 +28,7 @@ const SkillsFrameworks = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ paddingBottom: 40 }}>
       <SubTitle text={"Frameworks & Libraries"} />
       <table
         style={{ alignSelf: "left", alignContent: "left", alignItems: "left" }}

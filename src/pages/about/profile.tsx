@@ -31,7 +31,7 @@ const AboutProfileTable = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ paddingBottom: 40 }}>
       <SubTitle text={"Profile"} />
       <table
         style={{ alignSelf: "left", alignContent: "left", alignItems: "left" }}

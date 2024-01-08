@@ -28,7 +28,7 @@ const SkillsOthers = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ paddingBottom: 40 }}>
       <SubTitle text={"Others"} />
       <table
         style={{ alignSelf: "left", alignContent: "left", alignItems: "left" }}

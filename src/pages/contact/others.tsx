@@ -40,7 +40,7 @@ const ContactOthersTable = () => {
           <TableItem
             keyValue={other.contact_name}
             Value={<a href={other.account_url} target="_blank"
-            rel="noopener noreferrer" style={{color: "black"}}>@{other.accout_name}</a>}
+            rel="noopener noreferrer">@{other.accout_name}</a>}
             paddingBetween={230}
           />
           </div>
