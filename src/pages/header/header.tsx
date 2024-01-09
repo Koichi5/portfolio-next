@@ -38,6 +38,7 @@ const CustomHeaderButton = styled(Button)(({ theme }) => ({
   },
 }));
 
+import { ThemeModeButton } from "@/components/theme_mode_button";
 import { AppBar, Button, Toolbar } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
@@ -50,7 +51,9 @@ function Header() {
           <CustomHeaderTitle>
             <p color="inherit">Koichi's Portfolio</p>
           </CustomHeaderTitle>
-          <CustomHeaderButton>HOME</CustomHeaderButton>
+          <CustomHeaderButton>
+          <a href="#">HOME</a>
+          </CustomHeaderButton>
           <CustomHeaderButton>
             <a href="#about">ABOUT</a>
           </CustomHeaderButton>
@@ -66,6 +69,7 @@ function Header() {
           <CustomHeaderButton>
             <a href="#contact">CONTACT</a>
           </CustomHeaderButton>
+          <ThemeModeButton />
         </Toolbar>
       </AppBar>
     </CustomHeaderRootDiv>

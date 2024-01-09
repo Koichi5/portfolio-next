@@ -6,18 +6,21 @@ import Contact from "@/pages/contact/contact";
 import Works from "@/pages/works/works";
 import Contests from "@/pages/contest/contest";
 import Header from "@/pages/header/header";
+import { ThemeProvider } from "next-themes";
 
 function Home() {
   return (
-    <div style={{padding: 50}}>
-      <Header />
-      <Welcome />
-      <About />
-      <Skills />
-      <Works />
-      <Contests />
-      <Contact />
-    </div>
+    <ThemeProvider attribute="class" defaultTheme="light">
+      <div style={{ padding: 50 }}>
+        <Header />
+        <Welcome />
+        <About />
+        <Skills />
+        <Works />
+        <Contests />
+        <Contact />
+      </div>
+    </ThemeProvider>
   );
 }
 

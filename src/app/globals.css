@@ -1,13 +1,45 @@
 :root {
+  --color-light: rgb(85, 85, 85);
+  --color-dark: rgb(220, 220, 220);
+  /* --foreground-color-light: black;
+  --foreground-color-dark: white; */
+}
+
+[class="light"] {
+  /* --body-color: var(var(--foreground-color-light)); */
+  --body-color: var(--color-light);
+  --link-color: var(--color-light);
+}
+
+[class="dark"] {
+  /* --body-color: var(var(--foreground-color-dark)); */
+  --body-color: var(--color-dark);
+  --link-color: var(--color-dark);
+}
+
+/* html,
+body {
+  color: var(--body-color);
+} */
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+html {
+  color: var(--body-color);
+}
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  /* --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255; */
+  --background-end-rgb: 255, 255, 255;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -105,4 +137,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} */
