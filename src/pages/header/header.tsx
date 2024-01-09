@@ -38,10 +38,10 @@ function Header() {
       <AppBar position="static" color="transparent">
         <Toolbar>
           <CustomHeaderTitle>
-            <p color="inherit">Koichi's Portfolio</p>
+            <p color="inherit">Koichi&apos;s Portfolio</p>
           </CustomHeaderTitle>
           <Button>
-          <a href="#">HOME</a>
+            <a href="#">HOME</a>
           </Button>
           <Button>
             <a href="#about">ABOUT</a>
