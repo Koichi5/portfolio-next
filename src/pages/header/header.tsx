@@ -28,22 +28,11 @@ const CustomHeaderTitle = styled("div")(({ theme }) => ({
   fontWeight: "bold",
 }));
 
-const CustomHeaderButton = styled(Button)(({ theme }) => ({
-  marginLeft: theme.spacing(1),
-  "&:focus": {
-    outline: "none",
-  },
-  "&:active": {
-    boxShadow: "none",
-  },
-}));
-
 import { ThemeModeButton } from "@/components/theme_mode_button";
 import { AppBar, Button, Toolbar } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 function Header() {
-  //   const classes = useStyles();
   return (
     <CustomHeaderRootDiv>
       <AppBar position="static" color="transparent">
@@ -51,24 +40,24 @@ function Header() {
           <CustomHeaderTitle>
             <p color="inherit">Koichi's Portfolio</p>
           </CustomHeaderTitle>
-          <CustomHeaderButton>
+          <Button>
           <a href="#">HOME</a>
-          </CustomHeaderButton>
-          <CustomHeaderButton>
+          </Button>
+          <Button>
             <a href="#about">ABOUT</a>
-          </CustomHeaderButton>
-          <CustomHeaderButton>
+          </Button>
+          <Button>
             <a href="#skills">SKILLS</a>
-          </CustomHeaderButton>
-          <CustomHeaderButton>
+          </Button>
+          <Button>
             <a href="#works">WORKS</a>
-          </CustomHeaderButton>
-          <CustomHeaderButton>
+          </Button>
+          <Button>
             <a href="#contests">CONTESTS</a>
-          </CustomHeaderButton>
-          <CustomHeaderButton>
+          </Button>
+          <Button>
             <a href="#contact">CONTACT</a>
-          </CustomHeaderButton>
+          </Button>
           <ThemeModeButton />
         </Toolbar>
       </AppBar>
