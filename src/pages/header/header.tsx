@@ -1,22 +1,6 @@
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     flexGrow: 1,
-//   },
-//   title: {
-//     flexGrow: 1,
-//     textAlign: "left",
-//     fontWeight: "bold",
-//   },
-//   button: {
-// marginLeft: theme.spacing(1),
-// "&:focus": {
-//   outline: "none",
-// },
-// "&:active": {
-//   boxShadow: "none",
-// },
-//   },
-// }));
+import { ThemeModeButton } from "@/components/theme_mode_button";
+import { AppBar, Button, Toolbar } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
 const CustomHeaderRootDiv = styled("div")(({ theme }) => ({
   flexGrow: 1,
@@ -27,10 +11,6 @@ const CustomHeaderTitle = styled("div")(({ theme }) => ({
   textAlign: "left",
   fontWeight: "bold",
 }));
-
-import { ThemeModeButton } from "@/components/theme_mode_button";
-import { AppBar, Button, Toolbar } from "@mui/material";
-import { styled } from "@mui/material/styles";
 
 function Header() {
   return (

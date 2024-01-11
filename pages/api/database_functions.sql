@@ -1,15 +1,15 @@
 -- AboutProfile
-insert into
+INSERT INTO
     "AboutProfile" (name, value)
-values
+VALUES
     ('Name', '岸本 浩一智 ( Kishimoto Koichi )'),
     ('Belonging', '関西大学経済学部'),
     ('Speciality', 'モバイルアプリケーション開発')
 
 -- AboutMyHistory
-insert into
+INSERT INTO
     "AboutMyHistory" (date, value)
-values
+VALUES
     ('2021. 4', '関西大学入学'),
     ('2021. 11', 'プログラミング（Web制作）を本格的に学習開始'),
     ('2021. 12', 'ビジネスコンテスト「ミライノピッチ」で企業賞複数受賞'),
@@ -44,9 +44,9 @@ values
     ('2023. 10', '株式会社 リクルート のサマーインターンに参加')
 
 -- SkillLanguageProficiency
-insert into
+INSERT INTO
     "SkillLanguageProficiency" (name, proficiency)
-values
+VALUES
     ('Dart', 5),
     ('Swift', 4),
     ('Python', 4),
@@ -56,9 +56,9 @@ values
     ('Unity', 1)
 
 -- SkillFrameworkProficiency
-insert into
+INSERT INTO
     "SkillFrameworkProficiency" (name, proficiency)
-values
+VALUES
     ('Flutter', 5),
     ('SwiftUI', 4),
     ('React', 3),
@@ -70,9 +70,9 @@ values
     ('ARKit', 2)
 
 -- SkillOtherProficiency
-insert into
+INSERT INTO
     "SkillOtherProficiency" (name, proficiency)
-values
+VALUES
     ('Firebase', 4),
     ('GitHub', 4),
     ('Slack', 4),
@@ -81,7 +81,7 @@ values
     ('Blender', 3)
 
 -- Work
-insert into
+INSERT INTO
     "Work" (
         title,
         attribute,
@@ -92,7 +92,7 @@ insert into
         source_urls,
         source_image_urls
     )
-values
+VALUES
     (
         'Tech Journey',
         '個人開発',
@@ -165,7 +165,7 @@ values
     )
 
 -- Contest
-insert into
+INSERT INTO
     "Contest" (
         title,
         attribute,
@@ -176,7 +176,7 @@ insert into
         source_urls,
         source_image_urls
     )
-values
+VALUES
     (
         'ChatHub',
         'ハッカソン',
@@ -199,16 +199,16 @@ values
     )
 
 -- ContactEmailAndPhone
-insert into
+INSERT INTO
     "ContactEmailAndPhone" (name, value)
-values
+VALUES
     ('Email', 'koichi20021217@gmail.com'),
     ('Phone', '080-4558-9517')
 
 -- ContactOthers
-insert into
+INSERT INTO
     "ContactOthers" (contact_name, accout_name, account_url)
-values
+VALUES
     (
         'Twitter',
         'koichi_mobile',
