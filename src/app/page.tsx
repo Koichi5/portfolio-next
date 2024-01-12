@@ -7,10 +7,13 @@ import Works from "@/pages/works/works";
 import Contests from "@/pages/contest/contest";
 import Header from "@/pages/header/header";
 import { ThemeProvider } from "next-themes";
+import { Suspense } from "react";
+import Loading from "@/pages/loading";
 
 function Home() {
   return (
     <ThemeProvider attribute="class" defaultTheme="light">
+      <Suspense fallback={<Loading />}>
       <div style={{ padding: 50 }}>
         <Header />
         <Welcome />
@@ -20,6 +23,7 @@ function Home() {
         <Contests />
         <Contact />
       </div>
+      </Suspense>
     </ThemeProvider>
   );
 }
