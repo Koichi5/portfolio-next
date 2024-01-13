@@ -28,7 +28,7 @@ const ContestCardGrid = () => {
   }, []);
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={8}>
       {contests.map((contest, index) => (
         <Grid key={index} item xs={12} sm={6}>
           <CardWithDialog

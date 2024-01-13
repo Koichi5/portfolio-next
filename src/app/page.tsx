@@ -8,22 +8,22 @@ import Contests from "@/pages/contest/contest";
 import Header from "@/pages/header/header";
 import { ThemeProvider } from "next-themes";
 import { Suspense } from "react";
-import Loading from "@/pages/loading";
+import Loading from "@/app/loading";
 
 function Home() {
   return (
     <ThemeProvider attribute="class" defaultTheme="light">
-      <Suspense fallback={<Loading />}>
       <div style={{ padding: 50 }}>
         <Header />
         <Welcome />
-        <About />
-        <Skills />
-        <Works />
-        <Contests />
-        <Contact />
+        <Suspense fallback={<Loading />}>
+          <About />
+          <Skills />
+          <Works />
+          <Contests />
+          <Contact />
+        </Suspense>
       </div>
-      </Suspense>
     </ThemeProvider>
   );
 }

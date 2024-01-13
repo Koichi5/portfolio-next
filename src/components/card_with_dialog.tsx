@@ -54,8 +54,8 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const CustomDialog = styled(Dialog)(({ theme }) => ({
   minWidth: 500,
-  maxWidth: 700,
-  borderRadius: "15px",
+  // maxWidth: 700,
+  borderRadius: "30px",
   padding: theme.spacing(2),
 }));
 
@@ -80,6 +80,12 @@ const CustomSubtitle = styled("span")(({ theme }) => ({
   textDecorationColor: "#FFFFFF",
   paddingBottom: "0.8rem",
   letterSpacing: "0.2rem",
+}));
+
+const CustomContentTypography = styled(Typography)(({ theme }) => ({
+  paddingTop: 20,
+  paddingBottom: 40,
+  fontSize: 18,
 }));
 
 interface CardProps {
@@ -123,12 +129,7 @@ function CardWithDialog({
   };
 
   return (
-    <Card
-      sx={{
-        maxWidth: 500,
-        margin: 30,
-      }}
-    >
+    <Card sx={{ alignContent: "center" }}>
       <CardActionArea onClick={handleOpen}>
         <CardMedia
           sx={{ height: 350 }}
@@ -147,7 +148,9 @@ function CardWithDialog({
       </CardActionArea>
       <CustomDialog open={open} onClose={handleClose}>
         <CustomDialogTitle>
-          <Typography variant="h4">{title}</Typography>
+          <Typography sx={{ paddingBottom: "15px" }} variant="h5">
+            {title}
+          </Typography>
           <CustomCloseIconButton onClick={handleClose}>
             <CloseIcon />
           </CustomCloseIconButton>
@@ -164,75 +167,47 @@ function CardWithDialog({
           <Typography color="textPrimary" gutterBottom>
             <CustomSubtitle>{firstContentTitle}</CustomSubtitle>
           </Typography>
-          <Typography
-            sx={{
-              paddingTop: 20,
-              paddingBottom: 40,
-              fontSize: 18,
-            }}
+          <CustomContentTypography
             variant="body1"
             color="textSecondary"
-            component="p"
           >
             {firstContent}
-          </Typography>
+          </CustomContentTypography>
           <Typography color="textPrimary" gutterBottom>
             <CustomSubtitle>{secondContentTitle}</CustomSubtitle>
           </Typography>
-          <Typography
-            sx={{
-              paddingTop: 20,
-              paddingBottom: 40,
-              fontSize: 18,
-            }}
+          <CustomContentTypography
             variant="body1"
             color="textSecondary"
-            component="p"
           >
             {secondContent}
-          </Typography>
+          </CustomContentTypography>
           <Typography color="textPrimary" gutterBottom>
             <CustomSubtitle>{thirdContentTitle}</CustomSubtitle>
           </Typography>
-          <Typography
-            sx={{
-              paddingTop: 20,
-              paddingBottom: 40,
-              fontSize: 18,
-            }}
+          <CustomContentTypography
             variant="body1"
             color="textSecondary"
-            component="p"
           >
             {thirdContent}
-          </Typography>
+          </CustomContentTypography>
           <Typography color="textPrimary" gutterBottom>
             <CustomSubtitle>{fourthContentTitle}</CustomSubtitle>
           </Typography>
           <Typography
-            sx={{
-              paddingTop: 20,
-              paddingBottom: 40,
-              fontSize: 18,
-            }}
+            sx={{ paddingTop: 20, paddingBottom: 40, fontSize: 18 }}
             variant="body1"
             color="textSecondary"
             component="p"
           >
             {fourthContent}
           </Typography>
-          <Typography
-            sx={{
-              paddingTop: 20,
-              paddingBottom: 40,
-              fontSize: 18,
-            }}
+          <CustomContentTypography
             variant="body1"
             color="textSecondary"
-            component="p"
           >
             {fifthContent}
-          </Typography>
+          </CustomContentTypography>
         </DialogContent>
         <DialogActions>
           <div />
