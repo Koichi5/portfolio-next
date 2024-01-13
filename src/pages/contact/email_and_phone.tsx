@@ -1,12 +1,14 @@
 "use client";
 
-import SubTitle from "@/components/sub_title";
-import TableItem from "@/components/table_item";
+import SubTitle from "@/components/material_ui/sub_title";
+import TableItem from "@/components/material_ui/table_item";
 import { ContactEmailAndPhone } from "@prisma/client";
 import { useEffect, useState } from "react";
 
 const ContactEmailAndPhoneTable = () => {
-  const [emailAndPhones, setEmailAndPhones] = useState<ContactEmailAndPhone[]>([]);
+  const [emailAndPhones, setEmailAndPhones] = useState<ContactEmailAndPhone[]>(
+    []
+  );
   const [loading, setLoading] = useState(false);
 
   const fetchContactEmailAndPhone = async () => {
@@ -37,11 +39,11 @@ const ContactEmailAndPhoneTable = () => {
       >
         {emailAndPhones.map((emailAndPhone) => (
           <div key={emailAndPhone.id}>
-          <TableItem
-            keyValue={emailAndPhone.name}
-            Value={emailAndPhone.value}
-            paddingBetween={230}
-          />
+            <TableItem
+              keyValue={emailAndPhone.name}
+              Value={emailAndPhone.value}
+              paddingBetween={230}
+            />
           </div>
         ))}
       </table>

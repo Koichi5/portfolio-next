@@ -1,12 +1,14 @@
 "use client";
 
-import SubTitle from "@/components/sub_title";
-import TableItem from "@/components/table_item";
+import SubTitle from "@/components/material_ui/sub_title";
+import TableItem from "@/components/material_ui/table_item";
 import { AboutMyHistory } from "@prisma/client";
 import { useEffect, useState } from "react";
 
 const AboutMyHistoryTable = () => {
-  const [aboutMyHistories, setAboutMyHistories] = useState<AboutMyHistory[]>([]);
+  const [aboutMyHistories, setAboutMyHistories] = useState<AboutMyHistory[]>(
+    []
+  );
   const [loading, setLoading] = useState(false);
 
   const fetchAboutMyHistories = async () => {
@@ -37,11 +39,11 @@ const AboutMyHistoryTable = () => {
       >
         {aboutMyHistories.map((myHistory) => (
           <div key={myHistory.id}>
-          <TableItem
-            keyValue={myHistory.date}
-            Value={myHistory.value}
-            paddingBetween={230}
-          />
+            <TableItem
+              keyValue={myHistory.date}
+              Value={myHistory.value}
+              paddingBetween={230}
+            />
           </div>
         ))}
       </table>

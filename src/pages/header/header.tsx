@@ -1,4 +1,4 @@
-import { ThemeModeButton } from "@/components/theme_mode_button";
+import { ThemeModeButton } from "@/components/material_ui/theme_mode_button";
 import { AppBar, Button, Toolbar } from "@mui/material";
 import { styled } from "@mui/material/styles";
 

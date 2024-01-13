@@ -1,4 +1,4 @@
-import CardWithDialog from "@/components/card_with_dialog";
+import CardWithDialog from "@/components/material_ui/card_with_dialog";
 import { Grid } from "@mui/material";
 import { Contest } from "@prisma/client";
 import { useEffect, useState } from "react";
@@ -45,6 +45,5 @@ const ContestCardGrid = () => {
     </Grid>
   );
 };
-
 
 export default ContestCardGrid;

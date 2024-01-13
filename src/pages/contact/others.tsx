@@ -1,7 +1,7 @@
 "use client";
 
-import SubTitle from "@/components/sub_title";
-import TableItem from "@/components/table_item";
+import SubTitle from "@/components/material_ui/sub_title";
+import TableItem from "@/components/material_ui/table_item";
 import { ContactOthers } from "@prisma/client";
 import { useEffect, useState } from "react";
 
@@ -37,12 +37,19 @@ const ContactOthersTable = () => {
       >
         {others.map((other) => (
           <div key={other.id}>
-          <TableItem
-            keyValue={other.contact_name}
-            Value={<a href={other.account_url} target="_blank"
-            rel="noopener noreferrer">@{other.accout_name}</a>}
-            paddingBetween={230}
-          />
+            <TableItem
+              keyValue={other.contact_name}
+              Value={
+                <a
+                  href={other.account_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @{other.accout_name}
+                </a>
+              }
+              paddingBetween={230}
+            />
           </div>
         ))}
       </table>

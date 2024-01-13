@@ -1,13 +1,13 @@
-import Title from "@/components/title"
-import ContestCardGrid from "./contest_card_grid"
+import Title from "@/components/material_ui/title";
+import ContestCardGrid from "./contest_card_grid";
 
 const Contests = () => {
-    return (
-        <div id='contests'>
-            <Title text="CONTESTS" />
-            <ContestCardGrid />
-        </div>
-    )
-}
+  return (
+    <div id="contests">
+      <Title text="CONTESTS" />
+      <ContestCardGrid />
+    </div>
+  );
+};
 
 export default Contests;

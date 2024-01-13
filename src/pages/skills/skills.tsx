@@ -1,4 +1,4 @@
-import Title from "@/components/title";
+import Title from "@/components/material_ui/title";
 import SkillsLanguages from "./languages";
 import SkillsFrameworks from "./frameworks";
 import SkillsOthers from "./others";

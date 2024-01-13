@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { SkillLanguageProficiency } from "@prisma/client";
-import SubTitle from "@/components/sub_title";
-import TableItem from "@/components/table_item";
+import SubTitle from "@/components/material_ui/sub_title";
+import TableItem from "@/components/material_ui/table_item";
 
 const SkillsLanguages = () => {
   const [languages, setLanguages] = useState<SkillLanguageProficiency[]>([]);

@@ -1,4 +1,4 @@
-import Title from "@/components/title";
+import Title from "@/components/material_ui/title";
 import WorksCardGrid from "./works_card_grid";
 
 const Works = () => {

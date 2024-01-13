@@ -1,5 +1,5 @@
-import Title from "@/components/title";
-import WelcomeText from "@/components/welcome_text";
+import Title from "@/components/material_ui/title";
+import WelcomeText from "@/components/material_ui/welcome_text";
 
 function Welcome() {
   return (
