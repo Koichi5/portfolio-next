@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --color-light: rgb(85, 85, 85);
   --color-dark: rgb(220, 220, 220);
 }
@@ -20,4 +20,9 @@ a {
 
 html {
   color: var(--body-color);
+} */
+
+body {
+  margin: 0;
+  padding: 0;
 }

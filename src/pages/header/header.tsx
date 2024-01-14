@@ -80,6 +80,7 @@ export default function Header() {
         display: "flex",
         justifyContent: "space-between",
         backgroundColor: theme.palette.mode === "dark" ? "#18181B" : "white",
+        padding: "40px"
       }}
     >
       <CustomIconButton

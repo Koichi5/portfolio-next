@@ -43,22 +43,15 @@ function Home() {
 
   return (
     <CustomThemeProvider>
-      <div
-        style={{
-          padding: 50,
-          backgroundColor: theme.palette.mode === "dark" ? "black" : "white",
-        }}
-      >
-        <Header />
-        <Welcome />
-        <Suspense fallback={<Loading />}>
-          <About />
-          <Skills />
-          <Works />
-          <Contests />
-          <Contact />
-        </Suspense>
-      </div>
+      <Header />
+      <Welcome />
+      <Suspense fallback={<Loading />}>
+        <About />
+        <Skills />
+        <Works />
+        <Contests />
+        <Contact />
+      </Suspense>
     </CustomThemeProvider>
   );
 }
