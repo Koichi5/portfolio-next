@@ -1,25 +1,22 @@
-import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { IconButton } from "@mui/material";
+import React from "react";
+import { useCustomTheme } from "./theme_context";
 
 export const ThemeModeButton = () => {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState<boolean>(false);
-
-  useEffect(() => setMounted(true), []);
+  const theme = useTheme();
+  const { toggleColorMode } = useCustomTheme();
 
   return (
-    <>
-      <IconButton
-        color="inherit"
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      >
-        {mounted && (
-          <>{theme === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}</>
-        )}
-      </IconButton>
-    </>
+    <IconButton onClick={toggleColorMode} color="inherit">
+      {theme.palette.mode === "dark" ? (
+        <Brightness7Icon />
+      ) : (
+        <Brightness4Icon />
+      )}
+    </IconButton>
   );
 };

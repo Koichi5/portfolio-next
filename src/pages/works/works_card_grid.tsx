@@ -50,6 +50,7 @@ const WorksCardGrid = () => {
               >
                 {work.source_urls.map((source, index) => (
                   <ImageLink
+                    key={source.toString()}
                     link_target={source}
                     image_source={work.source_image_urls[index]}
                     image_altnative={"source"}

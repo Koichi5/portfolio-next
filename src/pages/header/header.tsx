@@ -1,18 +1,22 @@
-// import * as React from 'react';
-// import { styled } from "@mui/material/styles";
-// import { Tabs } from '@mui/base/Tabs';
-// import { TabsList as BaseTabsList } from '@mui/base/TabsList';
-// import { TabPanel as BaseTabPanel } from '@mui/base/TabPanel';
-// import { buttonClasses } from '@mui/base/Button';
-// import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
-// import { ThemeModeButton } from '@/components/theme_mode_button';
-// import { Box, Button } from '@mui/material';
-
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import styled from "@mui/material/styles/styled";
+import CustomIconButton from "@/components/custom_icon_button";
+import { ThemeModeButton } from "@/components/theme_mode_button";
+import { useTheme } from "@mui/material/styles";
+
+const StyledBox = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#252529" : "white",
+  border:
+    theme.palette.mode === "dark" ? "solid grey 0.5px" : "solid #DCDCDC 0.5px",
+  boxShadow:
+    theme.palette.mode === "dark"
+      ? "0px 5px 5px grey[900]"
+      : "0px 5px 5px grey[200]",
+  borderRadius: "50px",
+}));
 
 interface StyledTabsProps {
   children?: React.ReactNode;
@@ -26,7 +30,7 @@ const StyledTabs = styled((props: StyledTabsProps) => (
     TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
     centered
   />
-))({
+))(({ theme }) => ({
   "& .MuiTabs-indicator": {
     display: "flex",
     justifyContent: "center",
@@ -35,9 +39,12 @@ const StyledTabs = styled((props: StyledTabsProps) => (
   "& .MuiTabs-indicatorSpan": {
     maxWidth: 40,
     width: "100%",
-    backgroundColor: "#2CD4BF",
+    backgroundImage:
+      theme.palette.mode === "dark"
+        ? "linear-gradient(90deg, #252529, #2CD4BF, #252529)"
+        : "linear-gradient(90deg, white, #2CD4BF, white)",
   },
-});
+}));
 
 interface StyledTabProps {
   label: string;
@@ -46,12 +53,11 @@ interface StyledTabProps {
 const StyledTab = styled((props: StyledTabProps) => (
   <Tab disableRipple {...props} />
 ))(({ theme }) => ({
+  color: theme.palette.mode === "dark" ? "#DCDCDC" : "#252529",
   height: "30px",
   textTransform: "none",
   fontWeight: theme.typography.fontWeightRegular,
   fontSize: theme.typography.pxToRem(10),
-  // marginRight: theme.spacing(1),
-  color: "rgba(255, 255, 255, 0.7)",
   "&.Mui-selected": {
     color: "#2CD4BF",
   },
@@ -62,23 +68,55 @@ const StyledTab = styled((props: StyledTabProps) => (
 
 export default function Header() {
   const [value, setValue] = React.useState(0);
+  const theme = useTheme();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <Box sx={{ bgcolor: "#252529", borderRadius: "50px" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        backgroundColor: theme.palette.mode === "dark" ? "#18181B" : "white",
+      }}
+    >
+      <CustomIconButton
+        backgroundImageUrl="https://lh3.googleusercontent.com/pw/ABLVV87QQxcXbkOrLrpMfPDNL311hkMBlZwcefuWB9lfcvRDEQog3kntHhpGiLAqbeaKFGUY8PCJV2AE6hmOn53vDdtbI0YpcZ1zua67wOuwBc6jSB21H0D36JVpp8ceQmyOxofvls04DaFL6UuOICP2i2ON=w500-h500-s-no-gm?authuser=0"
+        onClick={function (): void {
+          console.log("icon button clicked");
+        }}
+      />
+      <StyledBox>
         <StyledTabs value={value} onChange={handleChange}>
-          <StyledTab label="HOME"></StyledTab>
-          <StyledTab label="ABOUT"></StyledTab>
-          <StyledTab label="SKILLS"></StyledTab>
-          <StyledTab label="WORKS"></StyledTab>
-          <StyledTab label="CONTESTS"></StyledTab>
-          <StyledTab label="CONTACT"></StyledTab>
+          <StyledTab
+            label="HOME"
+            // sx={{ color: theme === "dark" ? "#DCDCDC" : "#252529" }}
+          ></StyledTab>
+          <StyledTab
+            label="ABOUT"
+            // sx={{ color: theme === "dark" ? "#DCDCDC" : "#252529" }}
+          ></StyledTab>
+          <StyledTab
+            label="SKILLS"
+            // sx={{ color: theme === "dark" ? "#DCDCDC" : "#252529" }}
+          ></StyledTab>
+          <StyledTab
+            label="WORKS"
+            // sx={{ color: theme === "dark" ? "#DCDCDC" : "#252529" }}
+          ></StyledTab>
+          <StyledTab
+            label="CONTESTS"
+            // sx={{ color: theme === "dark" ? "#DCDCDC" : "#252529" }}
+          ></StyledTab>
+          <StyledTab
+            label="CONTACT"
+            // sx={{ color: theme === "dark" ? "#DCDCDC" : "#252529" }}
+          ></StyledTab>
         </StyledTabs>
-      </Box>
+      </StyledBox>
+      <ThemeModeButton />
     </div>
   );
 }
