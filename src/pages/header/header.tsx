@@ -90,30 +90,12 @@ export default function Header() {
       />
       <StyledBox>
         <StyledTabs value={value} onChange={handleChange}>
-          <StyledTab
-            label="HOME"
-            // sx={{ color: theme === "dark" ? "#DCDCDC" : "#252529" }}
-          ></StyledTab>
-          <StyledTab
-            label="ABOUT"
-            // sx={{ color: theme === "dark" ? "#DCDCDC" : "#252529" }}
-          ></StyledTab>
-          <StyledTab
-            label="SKILLS"
-            // sx={{ color: theme === "dark" ? "#DCDCDC" : "#252529" }}
-          ></StyledTab>
-          <StyledTab
-            label="WORKS"
-            // sx={{ color: theme === "dark" ? "#DCDCDC" : "#252529" }}
-          ></StyledTab>
-          <StyledTab
-            label="CONTESTS"
-            // sx={{ color: theme === "dark" ? "#DCDCDC" : "#252529" }}
-          ></StyledTab>
-          <StyledTab
-            label="CONTACT"
-            // sx={{ color: theme === "dark" ? "#DCDCDC" : "#252529" }}
-          ></StyledTab>
+          <StyledTab label="HOME"></StyledTab>
+          <StyledTab label="ABOUT"></StyledTab>
+          <StyledTab label="SKILLS"></StyledTab>
+          <StyledTab label="WORKS"></StyledTab>
+          <StyledTab label="CONTESTS"></StyledTab>
+          <StyledTab label="CONTACT"></StyledTab>
         </StyledTabs>
       </StyledBox>
       <ThemeModeButton />

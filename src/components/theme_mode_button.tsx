@@ -1,10 +1,19 @@
-import { useEffect, useState } from "react";
-import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { IconButton } from "@mui/material";
 import React from "react";
+import { styled, useTheme } from "@mui/material/styles";
+import Brightness2OutlinedIcon from '@mui/icons-material/Brightness2Outlined';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import { IconButton } from "@mui/material";
 import { useCustomTheme } from "./theme_context";
+
+const DarkModeIcon = styled(LightModeOutlinedIcon)(({theme}) => ({
+  strokeWidth: 0.5,
+  color: "#2CD4BF"
+}))
+
+const LightModeIcon = styled(Brightness2OutlinedIcon)(({theme}) => ({
+  strokeWidth: 0.5,
+  color: "#252529"
+}))
 
 export const ThemeModeButton = () => {
   const theme = useTheme();
@@ -13,9 +22,9 @@ export const ThemeModeButton = () => {
   return (
     <IconButton onClick={toggleColorMode} color="inherit">
       {theme.palette.mode === "dark" ? (
-        <Brightness7Icon />
+        <DarkModeIcon />
       ) : (
-        <Brightness4Icon />
+        <LightModeIcon />
       )}
     </IconButton>
   );
