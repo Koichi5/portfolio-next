@@ -34,7 +34,6 @@ const WelcomeImageRow = () => {
     <Box sx={{ display: "flex", justifyContent: "center", overflowX: "hidden", p: 3 }}>
       {images.map((image, index) => (
         <Box key={index} sx={{ mx: 2, flexShrink: 0 }}>
-          <Card sx={{ transform: `rotate(${image.rotation}deg)` }}>
             <CardMedia
               component="img"
               width="250px"
@@ -45,9 +44,9 @@ const WelcomeImageRow = () => {
                 borderRadius: "16px",
                 boxShadow: 3,
                 width: "auto",
+                transform: `rotate(${image.rotation}deg)`
               }}
             />
-          </Card>
         </Box>
       ))}
     </Box>
