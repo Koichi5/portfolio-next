@@ -1,6 +1,6 @@
-import Link from "@mui/material/Link";
-import ConvertDate from "../../../lib/convert_date";
 import { useEffect, useState } from "react";
+import { useTheme } from "@mui/material/styles";
+import ArticleItem from "@/components/articles/article_item";
 
 interface Article {
   id: number;
@@ -8,9 +8,12 @@ interface Article {
   emoji: string;
   title: string;
   published_at: string;
+  article_type: string;
+  liked_count: number;
 }
 
 const Articles = () => {
+  const theme = useTheme();
   const [articles, setArticles] = useState<Article[]>([]);
 
   const fetchArticles = async () => {
@@ -35,21 +38,24 @@ const Articles = () => {
   }, []);
 
   return (
-    <>
-      <ul>
-        {articles.map((article) => (
-          <li key={article.id}>
-            <Link href={`https://zenn.dev/${article.path}`} target="blank">
-              <span>{article.emoji}</span>
-              <p>{article.title}</p>
-              <p>
-                <ConvertDate convertDate={article.published_at} />
-              </p>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </>
+    <div
+      style={{
+        backgroundColor: theme.palette.mode === "dark" ? "#18181B" : "white",
+        padding: "40px"
+      }}
+    >
+      {articles.map((article) => (
+        <ArticleItem
+          id={article.id}
+          path={article.path}
+          emoji={article.emoji}
+          title={article.title}
+          published_at={article.published_at}
+          article_type={article.article_type}
+          liked_count={article.liked_count}
+        />
+      ))}
+    </div>
   );
 };
 

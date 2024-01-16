@@ -1,4 +1,3 @@
-import Title from "@/components/title";
 import WelcomeDetailText from "@/components/welcome_detail_text";
 import WelcomeImageGrid from "@/components/welcome_image_row";
 import WelcomeText from "@/components/welcome_text";
