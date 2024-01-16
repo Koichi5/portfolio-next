@@ -11,6 +11,7 @@ import { Suspense } from "react";
 import Loading from "@/app/loading";
 import { PaletteMode } from "@mui/material";
 import { CustomThemeProvider } from "@/components/theme_context";
+import Articles from "@/pages/articles/articles";
 
 // ダークモードかライトモードかを決定する値をここで設定します
 // const mode: PaletteMode = 'light'; // 'light' または 'dark'
@@ -45,6 +46,7 @@ function Home() {
     <CustomThemeProvider>
       <Header />
       <Welcome />
+      <Articles />
       <Suspense fallback={<Loading />}>
         <About />
         <Skills />
