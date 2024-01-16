@@ -6,21 +6,31 @@ interface AboutSnsLinkProps {
   target: string;
 }
 
-const CustomAboutSnsLink = styled("div")(({ theme }) => ({
+const CustomLink = styled("a")(({ theme }) => ({
   display: "flex",
-  color: theme.palette.mode === "dark" ? "#DCDCDC" : "#252529",
+  flexDirection: "row",
+  color: theme.palette.mode === "dark" ? "#DCDCDC" : "#252529", // 通常状態の色
+  textDecoration: "none",
+  "&:link": {
+    color: theme.palette.mode === "dark" ? "#DCDCDC" : "#252529", // 未訪問リンクの色
+  },
+  "&:visited": {
+    color: theme.palette.mode === "dark" ? "#DCDCDC" : "#252529", // 訪問済みリンクの色
+  },
+  "&:hover": {
+    color: "#2CD4BF",
+  },
+  "&:active": {
+    color: "#2CD4BF",
+  },
 }));
-
-
 
 const AboutSnsLink = (props: AboutSnsLinkProps) => {
   return (
-    <CustomAboutSnsLink>
-      <div>{props.icon}</div>
-      <a href={props.target} target="_blank" color="#000000">
-        {props.label}
-      </a>
-    </CustomAboutSnsLink>
+    <CustomLink href={props.target} target="_blank">
+      <div style={{padding: "10px"}}>{props.icon}</div>
+      <div style={{padding: "10px"}}>{props.label}</div>
+    </CustomLink>
   );
 };
 
