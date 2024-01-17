@@ -1,6 +1,6 @@
-import WelcomeDetailText from "@/components/welcome_detail_text";
-import WelcomeImageGrid from "@/components/welcome_image_row";
-import WelcomeText from "@/components/welcome_text";
+import WelcomeDetailText from "@/components/welcome/welcome_detail_text";
+import WelcomeImageGrid from "@/components/welcome/welcome_image_row";
+import WelcomeText from "@/components/welcome/welcome_text";
 import { useTheme } from "@mui/material/styles";
 
 function Welcome() {

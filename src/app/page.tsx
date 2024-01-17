@@ -6,10 +6,9 @@ import Contact from "@/pages/contact/contact";
 import Works from "@/pages/works/works";
 import Contests from "@/pages/contest/contest";
 import Header from "@/pages/header/header";
-import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import { Suspense } from "react";
 import Loading from "@/app/loading";
-import { PaletteMode } from "@mui/material";
 import { CustomThemeProvider } from "@/components/theme_context";
 import Articles from "@/pages/articles/articles";
 
