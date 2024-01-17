@@ -4,7 +4,7 @@ import About from "@/pages/about/about";
 import Skills from "@/pages/skills/skills";
 import Contact from "@/pages/contact/contact";
 import Works from "@/pages/works/works";
-import Contests from "@/pages/contest/contest";
+import Contests from "@/pages/contests/contests";
 import Header from "@/pages/header/header";
 import { useTheme } from "@mui/material/styles";
 import { Suspense } from "react";
