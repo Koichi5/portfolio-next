@@ -41,11 +41,12 @@ const Articles = () => {
     <div
       style={{
         backgroundColor: theme.palette.mode === "dark" ? "#18181B" : "white",
-        padding: "40px"
+        padding: "40px",
       }}
     >
       {articles.map((article) => (
         <ArticleItem
+          key={article.id}
           id={article.id}
           path={article.path}
           emoji={article.emoji}

@@ -13,8 +13,7 @@ interface ArticleItemProps {
 
 const CustomArticleItemWrapper = styled("div")(({ theme }) => ({
   display: "flex",
-  paddingBottom: "30px"
-//   justifyContent: "space-between"
+  paddingBottom: "30px",
 }));
 
 const CustomArticleItemTitle = styled("div")(({ theme }) => ({
@@ -23,25 +22,36 @@ const CustomArticleItemTitle = styled("div")(({ theme }) => ({
 }));
 
 const CustomArticleItemType = styled("div")(({ theme }) => ({
-    color: theme.palette.mode === "dark" ? "#A1A1AA" : "#252529",
-    textAlign: "left",
-    fontFamily: "serif",
-    fontSize: 20,
-    paddingBottom: 40,
+  color: theme.palette.mode === "dark" ? "#A1A1AA" : "#252529",
+  textAlign: "left",
+  fontFamily: "serif",
+  fontSize: 20,
+  paddingBottom: 40,
+}));
+
+const CustomArticleItemLikeCount = styled("div")(({ theme }) => ({
+  color: theme.palette.mode === "dark" ? "#A1A1AA" : "#252529",
+  textAlign: "left",
+  fontFamily: "serif",
+  fontSize: 15,
+  paddingBottom: 40,
 }));
 
 function ArticleItem(props: ArticleItemProps) {
   return (
     <CustomArticleItemWrapper>
       <ConvertDate convertDate={props.published_at} />
-      <div style={{paddingLeft: "25%"}}>
-        <CustomArticleItemTitle>{props.emoji} {props.title}</CustomArticleItemTitle>
+      <div style={{ paddingLeft: "25%" }}>
+        <CustomArticleItemTitle>
+          {props.emoji} {props.title}
+        </CustomArticleItemTitle>
         <div style={{ display: "flex" }}>
-          <CustomArticleItemType style={{ padding: "10px" }}>{props.article_type.toLocaleUpperCase()}</CustomArticleItemType>
           <CustomArticleItemType style={{ padding: "10px" }}>
-            {props.liked_count} likes
+            {props.article_type.toLocaleUpperCase()}
           </CustomArticleItemType>
-
+          <CustomArticleItemLikeCount style={{ padding: "10px" }}>
+            <span style={{fontSize: "20px"}}>{props.liked_count}</span> likes
+          </CustomArticleItemLikeCount>
         </div>
       </div>
     </CustomArticleItemWrapper>
