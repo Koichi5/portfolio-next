@@ -1,5 +1,6 @@
 import CardWithDialog from "@/components/card_with_dialog";
 import ImageLink from "@/components/image_link";
+import WorksCard from "@/components/works/works_card";
 import Grid from "@mui/material/Grid";
 import { Work } from "@prisma/client";
 import { useEffect, useState } from "react";
@@ -29,10 +30,15 @@ const WorksCardGrid = () => {
   }, []);
 
   return (
-    <Grid container spacing={8}>
+    <Grid container spacing={2} sx={{padding: "40px"}}>
       {works.map((work, index) => (
-        <Grid key={index} item xs={12} sm={6}>
-          <CardWithDialog
+        <Grid key={index} item xs={12} sm={4}>
+          <WorksCard
+            title={work.title}
+            detail={work.detail}
+            image_path={work.image_path}
+          />
+          {/* <CardWithDialog
             imageSrc={work.image_path}
             title={work.title}
             attribute={work.attribute}
@@ -60,7 +66,7 @@ const WorksCardGrid = () => {
                 ))}
               </div>
             }
-          />
+          /> */}
         </Grid>
       ))}
     </Grid>
