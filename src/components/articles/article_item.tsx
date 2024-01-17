@@ -11,7 +11,7 @@ interface ArticleItemProps {
   liked_count: number;
 }
 
-const CustomArticleItemWrapper = styled("div")(({ theme }) => ({
+const CustomArticleItemWrapper = styled("div")(() => ({
   display: "flex",
   paddingBottom: "30px",
 }));
@@ -24,7 +24,6 @@ const CustomArticleItemTitle = styled("div")(({ theme }) => ({
 const CustomArticleItemType = styled("div")(({ theme }) => ({
   color: theme.palette.mode === "dark" ? "#A1A1AA" : "#252529",
   textAlign: "left",
-  fontFamily: "serif",
   fontSize: 20,
   paddingBottom: 40,
 }));
@@ -32,9 +31,28 @@ const CustomArticleItemType = styled("div")(({ theme }) => ({
 const CustomArticleItemLikeCount = styled("div")(({ theme }) => ({
   color: theme.palette.mode === "dark" ? "#A1A1AA" : "#252529",
   textAlign: "left",
-  fontFamily: "serif",
   fontSize: 15,
   paddingBottom: 40,
+}));
+
+const CustomArticleReadMore = styled("a")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "row",
+  fontSize: 20,
+  color: "#2CD4BF", // 通常状態の色
+  textDecoration: "none",
+  "&:link": {
+    color: "#2CD4BF", // 未訪問リンクの色
+  },
+  "&:visited": {
+    color: "#2CD4BF", // 訪問済みリンクの色
+  },
+  "&:hover": {
+    color: "#2CD4BF",
+  },
+  "&:active": {
+    color: "#2CD4BF",
+  },
 }));
 
 function ArticleItem(props: ArticleItemProps) {
@@ -50,8 +68,16 @@ function ArticleItem(props: ArticleItemProps) {
             {props.article_type.toLocaleUpperCase()}
           </CustomArticleItemType>
           <CustomArticleItemLikeCount style={{ padding: "10px" }}>
-            <span style={{fontSize: "20px"}}>{props.liked_count}</span> likes
+            <span style={{ fontSize: "20px" }}>{props.liked_count}</span> likes
           </CustomArticleItemLikeCount>
+          <CustomArticleReadMore
+            href={`https://zenn.dev/${props.path}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ padding: "10px 40px" }}
+          >
+            <div>Read More &nbsp; &gt;</div>
+          </CustomArticleReadMore>
         </div>
       </div>
     </CustomArticleItemWrapper>

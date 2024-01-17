@@ -8,7 +8,6 @@ type ConvertDateProps = {
 const CustomConvertDate = styled("time")(({ theme }) => ({
   color: theme.palette.mode === "dark" ? "#A1A1AA" : "#252529",
   textAlign: "left",
-  fontFamily: "serif",
   fontSize: 20,
   paddingBottom: 40,
 }));
