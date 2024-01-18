@@ -51,7 +51,7 @@ function Home() {
         <Skills />
         <Works />
         <Contests />
-        <Contact />
+        {/* <Contact /> */}
       </Suspense>
     </CustomThemeProvider>
   );
