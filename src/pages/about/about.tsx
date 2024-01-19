@@ -8,6 +8,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkIcon from "@mui/icons-material/Link";
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/LocalPhone';
+import AboutHistory from "./history";
 
 const CustomContactEmailAndPhone = styled("div")(({ theme }) => ({
   display: "flex",
@@ -27,7 +28,8 @@ function About() {
         }}
       >
         <AboutTitle text="Mobile developer working primarily with Flutter" />
-        <AboutDetailText text="I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in. I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in. I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in. I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in. I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in. I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in. I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in." />
+        <AboutDetailText text="I am a software engineering student from Japan, primarily focused on mobile app development. I am a software engineering student from Japan, primarily focused on mobile app development." />
+        <AboutHistory />
       </div>
       <div
         style={{
