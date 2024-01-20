@@ -91,12 +91,12 @@ export default function Header() {
       />
       <StyledBox>
         <StyledTabs value={value} onChange={handleChange}>
-          <StyledTab label="HOME"></StyledTab>
-          <StyledTab label="ABOUT"></StyledTab>
-          <StyledTab label="SKILLS"></StyledTab>
-          <StyledTab label="WORKS"></StyledTab>
-          <StyledTab label="CONTESTS"></StyledTab>
-          <StyledTab label="CONTACT"></StyledTab>
+          <StyledTab label="Home"></StyledTab>
+          <StyledTab label="About"></StyledTab>
+          <StyledTab label="Articles"></StyledTab>
+          <StyledTab label="Skills"></StyledTab>
+          <StyledTab label="Works"></StyledTab>
+          <StyledTab label="Contests"></StyledTab>
         </StyledTabs>
       </StyledBox>
       <ThemeModeButton />

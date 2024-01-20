@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
@@ -74,12 +73,12 @@ export default function Footer() {
       >
         <div>
           <FooterStyledTabs value={value} onChange={handleChange}>
-            <FooterStyledTab label="HOME"></FooterStyledTab>
-            <FooterStyledTab label="ABOUT"></FooterStyledTab>
-            <FooterStyledTab label="SKILLS"></FooterStyledTab>
-            <FooterStyledTab label="WORKS"></FooterStyledTab>
-            <FooterStyledTab label="CONTESTS"></FooterStyledTab>
-            <FooterStyledTab label="CONTACT"></FooterStyledTab>
+          <FooterStyledTab label="Home"></FooterStyledTab>
+          <FooterStyledTab label="About"></FooterStyledTab>
+          <FooterStyledTab label="Articles"></FooterStyledTab>
+          <FooterStyledTab label="Skills"></FooterStyledTab>
+          <FooterStyledTab label="Works"></FooterStyledTab>
+          <FooterStyledTab label="Contests"></FooterStyledTab>
           </FooterStyledTabs>
         </div>
       </div>
