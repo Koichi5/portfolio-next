@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
-import ArticleItem from "@/components/articles/article_item_card";
 import { Grid } from "@mui/material";
 import ArticleItemCard from "@/components/articles/article_item_card";
+import Header from "../header";
+import Footer from "../footer";
 
 interface Article {
   id: number;
@@ -46,6 +47,7 @@ const Articles = () => {
         padding: "40px",
       }}
     >
+      <Header />
       <Grid container spacing={2}>
         {articles.map((article, index) => (
           <Grid key={article.id} item xs={12} sm={6}>
@@ -60,6 +62,7 @@ const Articles = () => {
           </Grid>
         ))}
       </Grid>
+      <Footer />
       {/* {articles.map((article) => (
         <ArticleItem
           key={article.id}

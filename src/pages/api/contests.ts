@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { prisma } from "../../lib/prisma";
+import { prisma } from "../../../lib/prisma";
 
 export default async function handler(
   req: NextApiRequest,
@@ -7,11 +7,10 @@ export default async function handler(
 ) {
   if (req.method == "GET") {
     try {
-      const contactOthers =
-        await prisma.contactOthers.findMany();
-      res.status(200).json(contactOthers);
+      const contests = await prisma.contest.findMany();
+      res.status(200).json(contests);
     } catch (e) {
-      res.status(500).json({ error: "Internak Server Error" });
+      res.status(500).json({ error: "Internal Server Error" });
     }
   } else {
     res.setHeader("Allow", ["GET"]);

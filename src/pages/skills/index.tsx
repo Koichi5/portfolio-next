@@ -5,6 +5,8 @@ import SkillsOthers from "./others";
 import SkillsText from "@/components/skills/skills_text";
 import SkillsDetailText from "@/components/skills/skills_detail_text";
 import Divider from "@mui/material/Divider";
+import Header from "../header";
+import Footer from "../footer";
 
 const CustomDivider = styled(Divider)(({ theme }) => ({
   marginLeft: "50px",
@@ -29,6 +31,7 @@ function Skills() {
         backgroundColor: theme.palette.mode === "dark" ? "#18181B" : "white",
       }}
     >
+      <Header />
       <div style={{ width: "60%", padding: "40px" }}>
         <SkillsText text={"Mobile developer working primarily with Flutter"} />
         <SkillsDetailText
@@ -58,6 +61,7 @@ function Skills() {
           <SkillsOthers />
         </CustomSkillWrapper>
       </div>
+      <Footer />
     </div>
   );
 }

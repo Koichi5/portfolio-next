@@ -1,17 +1,17 @@
 "use client";
-import Welcome from "@/pages/welcome/welcome";
-import About from "@/pages/about/about";
-import Skills from "@/pages/skills/skills";
-import Contact from "@/pages/contact/contact";
-import Works from "@/pages/works/works";
-import Contests from "@/pages/contests/contests";
-import Header from "@/pages/header/header";
+import Welcome from "@/pages/welcome";
+import Skills from "@/pages/skills";
+import Works from "@/pages/works";
+import Contests from "@/pages/contests";
 import { useTheme } from "@mui/material/styles";
 import { Suspense } from "react";
 import Loading from "@/app/loading";
 import { CustomThemeProvider } from "@/components/theme_context";
-import Articles from "@/pages/articles/articles";
-import Footer from "@/pages/footer/footer";
+import Articles from "@/pages/articles";
+import Footer from "@/pages/footer";
+import Link from "next/link";
+import Header from "@/pages/header";
+import About from "@/pages/about";
 
 // ダークモードかライトモードかを決定する値をここで設定します
 // const mode: PaletteMode = 'light'; // 'light' または 'dark'
@@ -52,7 +52,6 @@ function Home() {
         <Skills />
         <Works />
         <Contests />
-        {/* <Contact /> */}
       </Suspense>
       <Footer />
     </CustomThemeProvider>

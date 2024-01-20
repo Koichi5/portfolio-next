@@ -1,11 +1,10 @@
-import * as React from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import styled from "@mui/material/styles/styled";
 import CustomIconButton from "@/components/custom_icon_button";
 import { ThemeModeButton } from "@/components/theme_mode_button";
-import { useTheme } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#252529" : "white",
@@ -80,7 +79,7 @@ export default function Header() {
         display: "flex",
         justifyContent: "space-between",
         backgroundColor: theme.palette.mode === "dark" ? "#18181B" : "white",
-        padding: "40px"
+        padding: "40px",
       }}
     >
       <CustomIconButton
