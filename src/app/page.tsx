@@ -11,6 +11,7 @@ import { Suspense } from "react";
 import Loading from "@/app/loading";
 import { CustomThemeProvider } from "@/components/theme_context";
 import Articles from "@/pages/articles/articles";
+import Footer from "@/pages/footer/footer";
 
 // ダークモードかライトモードかを決定する値をここで設定します
 // const mode: PaletteMode = 'light'; // 'light' または 'dark'
@@ -53,6 +54,7 @@ function Home() {
         <Contests />
         {/* <Contact /> */}
       </Suspense>
+      <Footer />
     </CustomThemeProvider>
   );
 }
