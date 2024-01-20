@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { prisma } from "../../lib/prisma";
+import { prisma } from "../../../lib/prisma";
 
 export default async function handler(
   req: NextApiRequest,
@@ -7,16 +7,13 @@ export default async function handler(
 ) {
   if (req.method == "GET") {
     try {
-      const skillOtherProficiencies =
-        await prisma.skillOtherProficiency.findMany();
-      res.status(200).json(skillOtherProficiencies);
+      const aboutMyHistories = await prisma.aboutMyHistory.findMany();
+      res.status(200).json(aboutMyHistories);
     } catch (e) {
-      res.status(500).json({ error: "Internak Server Error" });
+      res.status(500).json({ error: "Internal Server Error" });
     }
   } else {
     res.setHeader("Allow", ["GET"]);
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
-
-prisma.contactEmailAndPhone
