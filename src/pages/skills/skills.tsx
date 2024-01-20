@@ -12,11 +12,11 @@ const CustomDivider = styled(Divider)(({ theme }) => ({
 }));
 
 const CustomSkillTitle = styled("p")(({ theme }) => ({
-  color: theme.palette.mode === "dark" ? "#DCDCDC" : "#252529",
+  color: theme.palette.mode === "dark" ? "grey" : "#A1A1AA",
   paddingBottom: "20px",
 }));
 
-const CustomSkillWrapper = styled("div")(({ theme }) => ({
+const CustomSkillWrapper = styled("div")(() => ({
   padding: " 20px 40px 40px 40px",
 }));
 

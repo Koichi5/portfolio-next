@@ -34,7 +34,6 @@ const CustomArticleItemDivider = styled(Divider)(({ theme }) => ({
 const CustomArticleItemTitle = styled("div")(({ theme }) => ({
   color: theme.palette.mode === "dark" ? "#DCDCDC" : "#252529",
   fontSize: "15px",
-  fontWeight: "bold",
 }));
 
 const CustomArticleItemLikeCount = styled("div")(({ theme }) => ({
@@ -65,7 +64,6 @@ const CustomArticleReadMore = styled("a")(({ theme }) => ({
 }));
 
 function ArticleItemCard(props: ArticleItemProps) {
-  const theme = useTheme();
   return (
     <CustomArticleItemCardBox>
       <div style={{ display: "flex", paddingBottom: "10px" }}>
