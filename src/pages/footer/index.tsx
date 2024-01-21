@@ -2,13 +2,7 @@ import Divider from "@mui/material/Divider";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import { styled, useTheme } from "@mui/material/styles";
-import React, { useState } from "react";
-import About from "../about";
-import Articles from "../articles";
-import Contests from "../contests";
-import Skills from "../skills";
-import Welcome from "../welcome";
-import Works from "../works";
+import React from "react";
 import { useTabContext } from "@/components/tab_context";
 
 interface FooterStyledTabsProps {
@@ -66,25 +60,6 @@ export default function Footer() {
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
-  };
-
-  const renderTabContent = (value: string) => {
-    switch (value) {
-      case "1":
-        return <Welcome />;
-      case "2":
-        return <About />;
-      case "3":
-        return <Articles />;
-      case "4":
-        return <Skills />;
-      case "5":
-        return <Works />;
-      case "6":
-        return <Contests />;
-      default:
-        return <Welcome />;
-    }
   };
 
   return (

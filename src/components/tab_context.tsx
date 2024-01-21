@@ -7,7 +7,7 @@ interface TabContextType {
 
 const TabContext = createContext<TabContextType | null>(null);
 
-export const useTabContext = () => useContext(TabContext) as TabContextType; // Type assertion to ensure useContext isn't null
+export const useTabContext = () => useContext(TabContext) as TabContextType;
 
 interface TabProviderProps {
   children: ReactNode;

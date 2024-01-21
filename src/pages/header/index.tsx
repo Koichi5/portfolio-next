@@ -101,7 +101,7 @@ export default function Header() {
   };
 
   return (
-    <div>
+    <div style={{ margin: 0 }}>
       <div
         style={{
           display: "flex",
