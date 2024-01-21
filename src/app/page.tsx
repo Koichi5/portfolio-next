@@ -12,6 +12,7 @@ import Footer from "@/pages/footer";
 import Link from "next/link";
 import Header from "@/pages/header";
 import About from "@/pages/about";
+import { TabProvider } from "@/components/tab_context";
 
 // ダークモードかライトモードかを決定する値をここで設定します
 // const mode: PaletteMode = 'light'; // 'light' または 'dark'
@@ -44,8 +45,9 @@ function Home() {
 
   return (
     <CustomThemeProvider>
-      <Header />
-      {/* <Welcome />
+      <TabProvider>
+        <Header />
+        {/* <Welcome />
       <Articles />
       <Suspense fallback={<Loading />}>
         <About />
@@ -53,7 +55,8 @@ function Home() {
         <Works />
         <Contests />
       </Suspense> */}
-      <Footer />
+        <Footer />
+      </TabProvider>
     </CustomThemeProvider>
   );
 }

@@ -2,12 +2,19 @@ import Divider from "@mui/material/Divider";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import { styled, useTheme } from "@mui/material/styles";
-import React from "react";
+import React, { useState } from "react";
+import About from "../about";
+import Articles from "../articles";
+import Contests from "../contests";
+import Skills from "../skills";
+import Welcome from "../welcome";
+import Works from "../works";
+import { useTabContext } from "@/components/tab_context";
 
 interface FooterStyledTabsProps {
   children?: React.ReactNode;
-  value: number;
-  onChange: (event: React.SyntheticEvent, newValue: number) => void;
+  value: string;
+  onChange: (event: React.SyntheticEvent, newValue: string) => void;
 }
 
 const FooterStyledTabs = styled((props: FooterStyledTabsProps) => (
@@ -34,6 +41,7 @@ const FooterStyledTabs = styled((props: FooterStyledTabsProps) => (
 
 interface FooterStyledTabProps {
   label: string;
+  value: string;
 }
 
 const FooterStyledTab = styled((props: FooterStyledTabProps) => (
@@ -53,11 +61,30 @@ const FooterStyledTab = styled((props: FooterStyledTabProps) => (
 }));
 
 export default function Footer() {
-  const [value, setValue] = React.useState(0);
+  const {value, setValue} = useTabContext();
   const theme = useTheme();
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
+  };
+
+  const renderTabContent = (value: string) => {
+    switch (value) {
+      case "1":
+        return <Welcome />;
+      case "2":
+        return <About />;
+      case "3":
+        return <Articles />;
+      case "4":
+        return <Skills />;
+      case "5":
+        return <Works />;
+      case "6":
+        return <Contests />;
+      default:
+        return <Welcome />;
+    }
   };
 
   return (
@@ -73,12 +100,12 @@ export default function Footer() {
       >
         <div>
           <FooterStyledTabs value={value} onChange={handleChange}>
-          <FooterStyledTab label="Home"></FooterStyledTab>
-          <FooterStyledTab label="About"></FooterStyledTab>
-          <FooterStyledTab label="Articles"></FooterStyledTab>
-          <FooterStyledTab label="Skills"></FooterStyledTab>
-          <FooterStyledTab label="Works"></FooterStyledTab>
-          <FooterStyledTab label="Contests"></FooterStyledTab>
+            <FooterStyledTab label="Home" value="1" />
+            <FooterStyledTab label="About" value="2" />
+            <FooterStyledTab label="Articles" value="3" />
+            <FooterStyledTab label="Skills" value="4" />
+            <FooterStyledTab label="Works" value="5" />
+            <FooterStyledTab label="Contests" value="6" />
           </FooterStyledTabs>
         </div>
       </div>
