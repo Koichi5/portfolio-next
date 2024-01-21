@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -11,6 +11,7 @@ import Contests from "../contests";
 import Skills from "../skills";
 import Works from "../works";
 import Welcome from "../welcome";
+import { useTabContext } from "@/components/tab_context";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#252529" : "white",
@@ -73,7 +74,7 @@ const StyledTab = styled((props: StyledTabProps) => (
 }));
 
 export default function Header() {
-  const [value, setValue] = useState("1");
+  const { value, setValue } = useTabContext();
   const theme = useTheme();
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -100,7 +101,7 @@ export default function Header() {
   };
 
   return (
-    <div>
+    <div style={{ margin: 0 }}>
       <div
         style={{
           display: "flex",
@@ -118,11 +119,11 @@ export default function Header() {
         <StyledBox>
           <StyledTabs value={value} onChange={handleChange}>
             <StyledTab label="Home" value="1" />
-            <StyledTab label="About" value="2"></StyledTab>
-            <StyledTab label="Articles" value="3"></StyledTab>
-            <StyledTab label="Skills" value="4"></StyledTab>
-            <StyledTab label="Works" value="5"></StyledTab>
-            <StyledTab label="Contests" value="6"></StyledTab>
+            <StyledTab label="About" value="2" />
+            <StyledTab label="Articles" value="3" />
+            <StyledTab label="Skills" value="4" />
+            <StyledTab label="Works" value="5" />
+            <StyledTab label="Contests" value="6" />
           </StyledTabs>
         </StyledBox>
         <ThemeModeButton />

@@ -3,11 +3,12 @@ import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import { styled, useTheme } from "@mui/material/styles";
 import React from "react";
+import { useTabContext } from "@/components/tab_context";
 
 interface FooterStyledTabsProps {
   children?: React.ReactNode;
-  value: number;
-  onChange: (event: React.SyntheticEvent, newValue: number) => void;
+  value: string;
+  onChange: (event: React.SyntheticEvent, newValue: string) => void;
 }
 
 const FooterStyledTabs = styled((props: FooterStyledTabsProps) => (
@@ -34,6 +35,7 @@ const FooterStyledTabs = styled((props: FooterStyledTabsProps) => (
 
 interface FooterStyledTabProps {
   label: string;
+  value: string;
 }
 
 const FooterStyledTab = styled((props: FooterStyledTabProps) => (
@@ -53,10 +55,10 @@ const FooterStyledTab = styled((props: FooterStyledTabProps) => (
 }));
 
 export default function Footer() {
-  const [value, setValue] = React.useState(0);
+  const {value, setValue} = useTabContext();
   const theme = useTheme();
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
@@ -73,12 +75,12 @@ export default function Footer() {
       >
         <div>
           <FooterStyledTabs value={value} onChange={handleChange}>
-          <FooterStyledTab label="Home"></FooterStyledTab>
-          <FooterStyledTab label="About"></FooterStyledTab>
-          <FooterStyledTab label="Articles"></FooterStyledTab>
-          <FooterStyledTab label="Skills"></FooterStyledTab>
-          <FooterStyledTab label="Works"></FooterStyledTab>
-          <FooterStyledTab label="Contests"></FooterStyledTab>
+            <FooterStyledTab label="Home" value="1" />
+            <FooterStyledTab label="About" value="2" />
+            <FooterStyledTab label="Articles" value="3" />
+            <FooterStyledTab label="Skills" value="4" />
+            <FooterStyledTab label="Works" value="5" />
+            <FooterStyledTab label="Contests" value="6" />
           </FooterStyledTabs>
         </div>
       </div>
