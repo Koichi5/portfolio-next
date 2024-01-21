@@ -1,9 +1,7 @@
-import WorksText from "@/components/works/works_text";
+import CustomTitle from "@/components/title";
 import WorksCardGrid from "./works_card_grid";
 import { useTheme } from "@mui/material/styles";
-import WorksDetailText from "@/components/works/works_detail_text";
-import Header from "../header";
-import Footer from "../footer";
+import CustomSubTitle from "@/components/sub_title";
 
 function Works() {
   const theme = useTheme();
@@ -13,17 +11,15 @@ function Works() {
         backgroundColor: theme.palette.mode === "dark" ? "#18181B" : "white",
       }}
     >
-      <Header />
       <div style={{ width: "60%", padding: "40px" }}>
-        <WorksText text={"Mobile developer working primarily with Flutter"} />
-        <WorksDetailText
+        <CustomTitle text={"Mobile developer working primarily with Flutter"} />
+        <CustomSubTitle
           text={
             "I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in."
           }
         />
       </div>
       <WorksCardGrid />
-      <Footer />
     </div>
   );
 }

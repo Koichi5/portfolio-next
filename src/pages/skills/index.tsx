@@ -2,11 +2,9 @@ import { styled, useTheme } from "@mui/material/styles";
 import SkillsLanguages from "./languages";
 import SkillsFrameworks from "./frameworks";
 import SkillsOthers from "./others";
-import SkillsText from "@/components/skills/skills_text";
-import SkillsDetailText from "@/components/skills/skills_detail_text";
 import Divider from "@mui/material/Divider";
-import Header from "../header";
-import Footer from "../footer";
+import CustomTitle from "@/components/title";
+import CustomSubTitle from "@/components/sub_title";
 
 const CustomDivider = styled(Divider)(({ theme }) => ({
   marginLeft: "50px",
@@ -31,10 +29,9 @@ function Skills() {
         backgroundColor: theme.palette.mode === "dark" ? "#18181B" : "white",
       }}
     >
-      <Header />
       <div style={{ width: "60%", padding: "40px" }}>
-        <SkillsText text={"Mobile developer working primarily with Flutter"} />
-        <SkillsDetailText
+        <CustomTitle text={"Mobile developer working primarily with Flutter"} />
+        <CustomSubTitle
           text={
             "I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in."
           }
@@ -61,7 +58,6 @@ function Skills() {
           <SkillsOthers />
         </CustomSkillWrapper>
       </div>
-      <Footer />
     </div>
   );
 }

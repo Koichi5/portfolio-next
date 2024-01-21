@@ -45,14 +45,14 @@ function Home() {
   return (
     <CustomThemeProvider>
       <Header />
-      <Welcome />
+      {/* <Welcome />
       <Articles />
       <Suspense fallback={<Loading />}>
         <About />
         <Skills />
         <Works />
         <Contests />
-      </Suspense>
+      </Suspense> */}
       <Footer />
     </CustomThemeProvider>
   );

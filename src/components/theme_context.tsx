@@ -1,5 +1,11 @@
 // theme-context.tsx
-import React, { createContext, useState, useMemo, useContext, ReactNode } from "react";
+import React, {
+  createContext,
+  useState,
+  useMemo,
+  useContext,
+  ReactNode,
+} from "react";
 import {
   createTheme,
   ThemeProvider as MUIThemeProvider,
@@ -9,8 +15,8 @@ import {
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 interface CustomThemeProviderProps {
-    children: ReactNode;
-  }
+  children: ReactNode;
+}
 
 // カスタムテーマプロバイダーコンポーネント
 export const CustomThemeProvider = ({ children }: CustomThemeProviderProps) => {
