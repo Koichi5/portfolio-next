@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import CustomIconButton from "@/components/custom_icon_button";
 import { ThemeModeButton } from "@/components/theme_mode_button";
 import { styled, useTheme } from "@mui/material/styles";
+import About from "../about";
+import Articles from "../articles";
+import Contests from "../contests";
+import Skills from "../skills";
+import Works from "../works";
+import Welcome from "../welcome";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#252529" : "white",
@@ -19,8 +25,8 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
 interface StyledTabsProps {
   children?: React.ReactNode;
-  value: number;
-  onChange: (event: React.SyntheticEvent, newValue: number) => void;
+  value: string;
+  onChange: (event: React.SyntheticEvent, newValue: string) => void;
 }
 
 const StyledTabs = styled((props: StyledTabsProps) => (
@@ -47,6 +53,7 @@ const StyledTabs = styled((props: StyledTabsProps) => (
 
 interface StyledTabProps {
   label: string;
+  value: string;
 }
 
 const StyledTab = styled((props: StyledTabProps) => (
@@ -66,39 +73,61 @@ const StyledTab = styled((props: StyledTabProps) => (
 }));
 
 export default function Header() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState("1");
   const theme = useTheme();
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
+  const renderTabContent = (value: string) => {
+    switch (value) {
+      case "1":
+        return <Welcome />;
+      case "2":
+        return <About />;
+      case "3":
+        return <Articles />;
+      case "4":
+        return <Skills />;
+      case "5":
+        return <Works />;
+      case "6":
+        return <Contests />;
+      default:
+        return <Welcome />;
+    }
+  };
+
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        backgroundColor: theme.palette.mode === "dark" ? "#18181B" : "white",
-        padding: "40px",
-      }}
-    >
-      <CustomIconButton
-        backgroundImageUrl="https://lh3.googleusercontent.com/pw/ABLVV87QQxcXbkOrLrpMfPDNL311hkMBlZwcefuWB9lfcvRDEQog3kntHhpGiLAqbeaKFGUY8PCJV2AE6hmOn53vDdtbI0YpcZ1zua67wOuwBc6jSB21H0D36JVpp8ceQmyOxofvls04DaFL6UuOICP2i2ON=w500-h500-s-no-gm?authuser=0"
-        onClick={function (): void {
-          console.log("icon button clicked");
+    <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          backgroundColor: theme.palette.mode === "dark" ? "#18181B" : "white",
+          padding: "40px",
         }}
-      />
-      <StyledBox>
-        <StyledTabs value={value} onChange={handleChange}>
-          <StyledTab label="Home"></StyledTab>
-          <StyledTab label="About"></StyledTab>
-          <StyledTab label="Articles"></StyledTab>
-          <StyledTab label="Skills"></StyledTab>
-          <StyledTab label="Works"></StyledTab>
-          <StyledTab label="Contests"></StyledTab>
-        </StyledTabs>
-      </StyledBox>
-      <ThemeModeButton />
+      >
+        <CustomIconButton
+          backgroundImageUrl="https://lh3.googleusercontent.com/pw/ABLVV87QQxcXbkOrLrpMfPDNL311hkMBlZwcefuWB9lfcvRDEQog3kntHhpGiLAqbeaKFGUY8PCJV2AE6hmOn53vDdtbI0YpcZ1zua67wOuwBc6jSB21H0D36JVpp8ceQmyOxofvls04DaFL6UuOICP2i2ON=w500-h500-s-no-gm?authuser=0"
+          onClick={function (): void {
+            console.log("icon button clicked");
+          }}
+        />
+        <StyledBox>
+          <StyledTabs value={value} onChange={handleChange}>
+            <StyledTab label="Home" value="1" />
+            <StyledTab label="About" value="2"></StyledTab>
+            <StyledTab label="Articles" value="3"></StyledTab>
+            <StyledTab label="Skills" value="4"></StyledTab>
+            <StyledTab label="Works" value="5"></StyledTab>
+            <StyledTab label="Contests" value="6"></StyledTab>
+          </StyledTabs>
+        </StyledBox>
+        <ThemeModeButton />
+      </div>
+      <div>{renderTabContent(value)}</div>
     </div>
   );
 }

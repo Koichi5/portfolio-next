@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import { Grid } from "@mui/material";
 import ArticleItemCard from "@/components/articles/article_item_card";
-import Header from "../header";
-import Footer from "../footer";
+import CustomTitle from "@/components/title";
+import CustomSubTitle from "@/components/sub_title";
 
 interface Article {
   id: number;
@@ -47,7 +47,12 @@ const Articles = () => {
         padding: "40px",
       }}
     >
-      <Header />
+      <CustomTitle text={"Mobile developer working primarily with Flutter"} />
+      <CustomSubTitle
+        text={
+          "I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in."
+        }
+      />
       <Grid container spacing={2}>
         {articles.map((article, index) => (
           <Grid key={article.id} item xs={12} sm={6}>
@@ -62,7 +67,6 @@ const Articles = () => {
           </Grid>
         ))}
       </Grid>
-      <Footer />
       {/* {articles.map((article) => (
         <ArticleItem
           key={article.id}

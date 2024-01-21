@@ -1,7 +1,5 @@
-import AboutDetailText from "@/components/about/about_detail_text";
 import AboutImage from "@/components/about/about_image";
 import AboutSnsLink from "@/components/about/about_sns_link";
-import AboutTitle from "@/components/about/about_title";
 import { styled, useTheme } from "@mui/material/styles";
 import XIcon from "@mui/icons-material/X";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -11,6 +9,8 @@ import PhoneIcon from "@mui/icons-material/LocalPhone";
 import AboutHistory from "./history";
 import Header from "../header";
 import Footer from "../footer";
+import CustomTitle from "@/components/title";
+import CustomSubTitle from "@/components/sub_title";
 
 const CustomContactEmailAndPhone = styled("div")(({ theme }) => ({
   display: "flex",
@@ -21,7 +21,6 @@ function About() {
   const theme = useTheme();
   return (
     <div>
-      <Header />
       <div style={{ display: "flex" }}>
         <div
           style={{
@@ -31,8 +30,8 @@ function About() {
               theme.palette.mode === "dark" ? "#18181B" : "white",
           }}
         >
-          <AboutTitle text="Mobile developer working primarily with Flutter" />
-          <AboutDetailText text="I am a software engineering student from Japan, primarily focused on mobile app development. I am a software engineering student from Japan, primarily focused on mobile app development." />
+          <CustomTitle text="Mobile developer working primarily with Flutter" />
+          <CustomSubTitle text="I am a software engineering student from Japan, primarily focused on mobile app development. I am a software engineering student from Japan, primarily focused on mobile app development." />
           <AboutHistory />
         </div>
         <div
@@ -80,7 +79,6 @@ function About() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
