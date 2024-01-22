@@ -33,7 +33,7 @@ const WorksCardGrid = () => {
   return (
     <div>
       {loading ? (
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ padding: "40px" }}>
           {Array.from({ length: 10 }).map((_, index) => (
             <Grid key={index} item xs={12} sm={4}>
               <WorksSkeltonCard />
