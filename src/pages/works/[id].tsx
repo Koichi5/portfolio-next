@@ -129,6 +129,7 @@ export default function WorksDetail() {
                   {" "}
                   {router.query.source_urls.map((source, index) => (
                     <ImageLink
+                      key={index}
                       link_target={source}
                       image_source={
                         Array.isArray(router.query.source_image_urls)
