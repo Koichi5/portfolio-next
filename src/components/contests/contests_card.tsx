@@ -1,10 +1,17 @@
 import { CardActionArea, styled } from "@mui/material";
 import Card from "@mui/material/Card";
+import Link from "next/link";
 
 interface ContestsCardProps {
+  id: string;
   title: string;
   detail: string;
+  point: string;
+  attribute: string;
   image_path: string;
+  tech: string;
+  source_urls: Array<string>;
+  source_image_urls: Array<string>;
 }
 
 const CustomContestsCardImageIconWrapper = styled("div")(({ theme }) => ({
@@ -76,33 +83,58 @@ const CustomContestsReadMore = styled("a")(({ theme }) => ({
   },
 }));
 
+const CustomCardLink = styled(Link)(({ theme }) => ({
+  textDecoration: "none",
+  color: "inherit",
+}));
+
 function ContestsCard(props: ContestsCardProps) {
   return (
     <Card sx={{ alignContent: "center", borderRadius: "20px" }}>
-      <CardActionArea
-        onClick={() => {
-          console.log(props.title);
+      <CustomCardLink
+        style={{ textDecoration: "none", color: "inherit" }}
+        href={{
+          pathname: `/contests/${encodeURIComponent(props.id)}`,
+          query: {
+            id: props.id,
+            title: props.title,
+            detail: props.detail,
+            point: props.point,
+            attribute: props.attribute,
+            image_path: props.image_path,
+            tech: props.tech,
+            source_urls: props.source_urls,
+            source_image_urls: props.source_image_urls,
+          },
         }}
       >
-        <div style={{ padding: "25px" }}>
-          <CustomContestsCardImageIconWrapper>
-            <CustomContestsCardImageIcon
-              src={props.image_path}
-              width="50px"
-              height="50px"
-            />
-          </CustomContestsCardImageIconWrapper>
-          <CustomContestsCardTitle>{props.title}</CustomContestsCardTitle>
-          <CustomContestsCardDetailText>{props.detail}</CustomContestsCardDetailText>
-          <CustomContestsReadMore
-            href={"https://github.com/Koichi5"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div>Read More &nbsp; &gt;</div>
-          </CustomContestsReadMore>
-        </div>
-      </CardActionArea>
+        <CardActionArea
+          onClick={() => {
+            console.log(props.title);
+          }}
+        >
+          <div style={{ padding: "25px" }}>
+            <CustomContestsCardImageIconWrapper>
+              <CustomContestsCardImageIcon
+                src={props.image_path}
+                width="50px"
+                height="50px"
+              />
+            </CustomContestsCardImageIconWrapper>
+            <CustomContestsCardTitle>{props.title}</CustomContestsCardTitle>
+            <CustomContestsCardDetailText>
+              {props.detail}
+            </CustomContestsCardDetailText>
+            <CustomContestsReadMore
+              href={"https://github.com/Koichi5"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div>Read More &nbsp; &gt;</div>
+            </CustomContestsReadMore>
+          </div>
+        </CardActionArea>
+      </CustomCardLink>
     </Card>
   );
 }

@@ -44,9 +44,15 @@ const ContestCardGrid = () => {
           {contests.map((contest, index) => (
             <Grid key={index} item xs={12} sm={4}>
               <ContestsCard
+                id={contest.id.toString()}
                 title={contest.title}
                 detail={contest.detail}
+                point={contest.point}
+                attribute={contest.attribute}
                 image_path={contest.image_path}
+                tech={contest.tech ?? ""}
+                source_urls={contest.source_urls ?? []}
+                source_image_urls={contest.source_image_urls ?? []}
               />
             </Grid>
           ))}
