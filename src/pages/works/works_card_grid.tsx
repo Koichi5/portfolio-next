@@ -30,13 +30,19 @@ const WorksCardGrid = () => {
   }, []);
 
   return (
-    <Grid container spacing={2} sx={{padding: "40px"}}>
+    <Grid container spacing={2} sx={{ padding: "40px" }}>
       {works.map((work, index) => (
         <Grid key={index} item xs={12} sm={4}>
           <WorksCard
+            id={work.id.toString()}
             title={work.title}
             detail={work.detail}
+            point={work.point}
+            attribute= {work.attribute}
             image_path={work.image_path}
+            tech={work.tech ?? ""}
+            source_urls={work.source_urls ?? []}
+            source_image_urls={work.source_image_urls ?? []}
           />
           {/* <CardWithDialog
             imageSrc={work.image_path}

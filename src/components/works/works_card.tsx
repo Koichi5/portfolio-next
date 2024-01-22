@@ -1,10 +1,17 @@
 import { CardActionArea, styled } from "@mui/material";
 import Card from "@mui/material/Card";
+import Link from "next/link";
 
 interface WorksCardProps {
+  id: string;
   title: string;
   detail: string;
+  point: string;
+  attribute: string;
   image_path: string;
+  tech: string;
+  source_urls: Array<string>;
+  source_image_urls: Array<string>;
 }
 
 const CustomWorksCardImageIconWrapper = styled("div")(({ theme }) => ({
@@ -55,7 +62,7 @@ const CustomWorksCardDetailText = styled("p")(({ theme }) => ({
   "-webkit-line-clamp": 2,
 }));
 
-const CustomWorksReadMore = styled("a")(({ theme }) => ({
+const CustomWorksReadMore = styled(Link)(({ theme }) => ({
   display: "flex",
   flexDirection: "row",
   color: theme.palette.mode === "dark" ? "#A1A1AA" : "#252529", // 通常状態の色
@@ -76,34 +83,68 @@ const CustomWorksReadMore = styled("a")(({ theme }) => ({
   },
 }));
 
+const CustomCardLink = styled(Link)(({ theme }) => ({
+  textDecoration: "none",
+  color: "inherit",
+}));
+
 function WorksCard(props: WorksCardProps) {
   return (
     <Card sx={{ alignContent: "center", borderRadius: "20px" }}>
-      <CardActionArea
-        onClick={() => {
-          console.log(props.title);
+      <CustomCardLink
+        style={{ textDecoration: "none", color: "inherit" }}
+        href={{
+          pathname: `/works/${encodeURIComponent(props.id)}`,
+          query: {
+            id: props.id,
+            title: props.title,
+            detail: props.detail,
+            point: props.point,
+            attribute: props.attribute,
+            image_path: props.image_path,
+            tech: props.tech,
+            source_urls: props.source_urls,
+            source_image_urls: props.source_image_urls,
+          },
         }}
+        // as={`/works/${encodeURIComponent(props.id)}`}
       >
-        <div style={{ padding: "25px" }}>
-          <CustomWorksCardImageIconWrapper>
-            <CustomWorksCardImageIcon
-              src={props.image_path}
-              width="50px"
-              height="50px"
-            />
-          </CustomWorksCardImageIconWrapper>
-          <CustomWorksCardTitle>{props.title}</CustomWorksCardTitle>
-          <CustomWorksCardDetailText>{props.detail}</CustomWorksCardDetailText>
-          <CustomWorksReadMore
-            href={"https://github.com/Koichi5"}
-            target="_blank"
-            rel="noopener noreferrer"
-            // style={{ padding: "10px 40px" }}
-          >
-            <div>Read More &nbsp; &gt;</div>
-          </CustomWorksReadMore>
-        </div>
-      </CardActionArea>
+        <CardActionArea
+          onClick={() => {
+            console.log(props.title);
+          }}
+        >
+          <div style={{ padding: "25px" }}>
+            <CustomWorksCardImageIconWrapper>
+              <CustomWorksCardImageIcon
+                src={props.image_path}
+                width="50px"
+                height="50px"
+              />
+            </CustomWorksCardImageIconWrapper>
+            <CustomWorksCardTitle>{props.title}</CustomWorksCardTitle>
+            <CustomWorksCardDetailText>
+              {props.detail}
+            </CustomWorksCardDetailText>
+            <CustomWorksReadMore
+              href={{
+                pathname: `/works/${encodeURIComponent(props.id)}`,
+                query: {
+                  id: props.id,
+                  title: props.title,
+                  detail: props.detail,
+                  image_path: props.image_path,
+                },
+              }}
+              // target="_blank"
+              // rel="noopener noreferrer"
+              // style={{ padding: "10px 40px" }}
+            >
+              <div>Read More &nbsp; &gt;</div>
+            </CustomWorksReadMore>
+          </div>
+        </CardActionArea>
+      </CustomCardLink>
     </Card>
   );
 }
