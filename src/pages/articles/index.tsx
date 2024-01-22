@@ -4,6 +4,7 @@ import { Grid } from "@mui/material";
 import ArticleItemCard from "@/components/articles/article_item_card";
 import CustomTitle from "@/components/title";
 import CustomSubTitle from "@/components/sub_title";
+import ArticleItemSkeltonCard from "@/components/articles/article_item_skelton_card";
 
 interface Article {
   id: number;
@@ -17,9 +18,11 @@ interface Article {
 
 const Articles = () => {
   const theme = useTheme();
+  const [loading, setLoading] = useState(false);
   const [articles, setArticles] = useState<Article[]>([]);
 
   const fetchArticles = async () => {
+    setLoading(true);
     try {
       const response = await fetch("/api/articles");
       if (!response.ok) {
@@ -33,6 +36,8 @@ const Articles = () => {
       }
     } catch (error) {
       console.error("Failed to fetch articles:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -53,20 +58,30 @@ const Articles = () => {
           "I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in."
         }
       />
-      <Grid container spacing={2}>
-        {articles.map((article, index) => (
-          <Grid key={article.id} item xs={12} sm={6}>
-            <ArticleItemCard
-              id={0}
-              path={article.path}
-              emoji={article.emoji}
-              title={article.title}
-              published_at={article.published_at}
-              liked_count={article.liked_count}
-            />
-          </Grid>
-        ))}
-      </Grid>
+      {loading ? (
+        <Grid container spacing={2}>
+          {Array.from({ length: 10 }).map((_, index) => (
+            <Grid key={index} item xs={12} sm={6}>
+              <ArticleItemSkeltonCard />
+            </Grid>
+          ))}
+        </Grid>
+      ) : (
+        <Grid container spacing={2}>
+          {articles.map((article, index) => (
+            <Grid key={article.id} item xs={12} sm={6}>
+              <ArticleItemCard
+                id={0}
+                path={article.path}
+                emoji={article.emoji}
+                title={article.title}
+                published_at={article.published_at}
+                liked_count={article.liked_count}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      )}
       {/* {articles.map((article) => (
         <ArticleItem
           key={article.id}
