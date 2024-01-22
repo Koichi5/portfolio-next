@@ -1,5 +1,6 @@
 import CardWithDialog from "@/components/card_with_dialog";
 import ContestsCard from "@/components/contests/contests_card";
+import ContestsSkeltonCard from "@/components/contests/contests_skelton_card";
 import { Grid } from "@mui/material";
 import { Contest } from "@prisma/client";
 import { useEffect, useState } from "react";
@@ -29,32 +30,29 @@ const ContestCardGrid = () => {
   }, []);
 
   return (
-    <Grid container spacing={2} sx={{ padding: "40px" }}>
-      {contests.map((contest, index) => (
-        <Grid key={index} item xs={12} sm={4}>
-          <ContestsCard
-            title={contest.title}
-            detail={contest.detail}
-            image_path={contest.image_path}
-          />
+    <div>
+      {loading ? (
+        <Grid container spacing={2} sx={{ padding: "40px" }}>
+          {Array.from({ length: 10 }).map((_, index) => (
+            <Grid key={index} item xs={12} sm={4}>
+              <ContestsSkeltonCard />
+            </Grid>
+          ))}
         </Grid>
-      ))}
-    </Grid>
-    // <Grid container spacing={8}>
-    //   {contests.map((contest, index) => (
-    //     <Grid key={index} item xs={12} sm={6}>
-    //       <CardWithDialog
-    //         imageSrc={contest.image_path}
-    //         title={contest.title}
-    //         attribute={contest.attribute}
-    //         firstContentTitle={"DETAIL"}
-    //         firstContent={contest.detail}
-    //         secondContentTitle={"POINT"}
-    //         secondContent={contest.point}
-    //       />
-    //     </Grid>
-    //   ))}
-    // </Grid>
+      ) : (
+        <Grid container spacing={2} sx={{ padding: "40px" }}>
+          {contests.map((contest, index) => (
+            <Grid key={index} item xs={12} sm={4}>
+              <ContestsCard
+                title={contest.title}
+                detail={contest.detail}
+                image_path={contest.image_path}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      )}
+    </div>
   );
 };
 
