@@ -107,7 +107,6 @@ function WorksCard(props: WorksCardProps) {
             source_image_urls: props.source_image_urls,
           },
         }}
-        // as={`/works/${encodeURIComponent(props.id)}`}
       >
         <CardActionArea
           onClick={() => {
