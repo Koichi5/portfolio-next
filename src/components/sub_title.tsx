@@ -1,22 +1,19 @@
-interface SubTitleProps {
+import { styled } from "@mui/material/styles";
+
+interface CustomSubTitleProps {
   text: string;
 }
 
-function SubTitle(props: SubTitleProps) {
-  return (
-    <div
-      style={{
-        paddingTop: 20,
-        textAlign: "left",
-        fontFamily: "serif",
-        fontWeight: "bold",
-        fontSize: 26,
-        paddingBottom: 20,
-      }}
-    >
-      {props.text}
-    </div>
-  );
+const StyledCustomSubTitle = styled("div")(({ theme }) => ({
+  color: theme.palette.mode === "dark" ? "#A1A1AA" : "#252529",
+  textAlign: "left",
+  fontFamily: "serif",
+  fontSize: 15,
+  paddingBottom: 40,
+}));
+
+function CustomSubTitle(props: CustomSubTitleProps) {
+  return <StyledCustomSubTitle>{props.text}</StyledCustomSubTitle>;
 }
 
-export default SubTitle;
+export default CustomSubTitle;

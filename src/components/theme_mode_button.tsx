@@ -1,25 +1,31 @@
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
+import React from "react";
+import { styled, useTheme } from "@mui/material/styles";
+import Brightness2OutlinedIcon from '@mui/icons-material/Brightness2Outlined';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import { IconButton } from "@mui/material";
+import { useCustomTheme } from "./theme_context";
+
+const DarkModeIcon = styled(LightModeOutlinedIcon)(({theme}) => ({
+  strokeWidth: 0.5,
+  color: "#2CD4BF"
+}))
+
+const LightModeIcon = styled(Brightness2OutlinedIcon)(({theme}) => ({
+  strokeWidth: 0.5,
+  color: "#252529"
+}))
 
 export const ThemeModeButton = () => {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState<boolean>(false);
-
-  useEffect(() => setMounted(true), []);
+  const theme = useTheme();
+  const { toggleColorMode } = useCustomTheme();
 
   return (
-    <>
-      <IconButton
-        color="inherit"
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      >
-        {mounted && (
-          <>{theme === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}</>
-        )}
-      </IconButton>
-    </>
+    <IconButton onClick={toggleColorMode} color="inherit">
+      {theme.palette.mode === "dark" ? (
+        <DarkModeIcon />
+      ) : (
+        <LightModeIcon />
+      )}
+    </IconButton>
   );
 };

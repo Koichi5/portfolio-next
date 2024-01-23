@@ -1,26 +1,21 @@
-import { styled } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
-interface TitleProps {
+interface CustomTitleProps {
   text: string;
 }
 
-const CustomTitle = styled("span")(({ theme }) => ({
-  fontFamily: "Chogokuboso-Gothic",
-  fontSize: "0.6rem",
-  borderBottom: "1px solid rgba(32, 36, 53, 0.741)",
-  textDecorationColor: "#FFFFFF",
-  paddingBottom: "1.0rem",
-  letterSpacing: "0.2rem",
+const StyledCustomTitle = styled("div")(({ theme }) => ({
+  color: theme.palette.mode === "dark" ? "#DCDCDC" : "#252529",
+  textAlign: "left",
+  fontFamily: "serif",
+  fontWeight: "bold",
+  fontSize: 30,
+  paddingTop: 40,
+  paddingBottom: 40,
 }));
 
-function Title(props: TitleProps) {
-  return (
-    <div style={{ paddingTop: 40, paddingBottom: 40 }}>
-      <h1 style={{ textAlign: "left" }}>
-        <CustomTitle>{props.text}</CustomTitle>
-      </h1>
-    </div>
-  );
+function CustomTitle(props: CustomTitleProps) {
+    return <StyledCustomTitle>{props.text}</StyledCustomTitle>
 }
 
-export default Title;
+export default CustomTitle;
