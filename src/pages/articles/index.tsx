@@ -49,9 +49,10 @@ const Articles = () => {
     <div
       style={{
         backgroundColor: theme.palette.mode === "dark" ? "#18181B" : "white",
+        padding: "40px",
       }}
     >
-      <div style={{ width: "60%", padding: "40px" }}>
+      <div style={{ width: "60%" }}>
         <CustomTitle
           text={
             "Writing on Mobile Application Development, Web Application Development and more "
