@@ -30,10 +30,10 @@ function Skills() {
       }}
     >
       <div style={{ width: "60%", padding: "40px" }}>
-        <CustomTitle text={"Mobile developer working primarily with Flutter"} />
+        <CustomTitle text={"My Skills and Proficiency"} />
         <CustomSubTitle
           text={
-            "I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in."
+            "A comprehensive overview of my skills in mobile app development, specializing in Flutter and Swift, alongside my capabilities in web development and Python implementation. "
           }
         />
       </div>

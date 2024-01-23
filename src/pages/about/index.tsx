@@ -7,8 +7,6 @@ import LinkIcon from "@mui/icons-material/Link";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/LocalPhone";
 import AboutHistory from "./history";
-import Header from "../header";
-import Footer from "../footer";
 import CustomTitle from "@/components/title";
 import CustomSubTitle from "@/components/sub_title";
 
@@ -30,14 +28,17 @@ function About() {
               theme.palette.mode === "dark" ? "#18181B" : "white",
           }}
         >
-          <CustomTitle text="Mobile developer working primarily with Flutter" />
-          <CustomSubTitle text="I am a software engineering student from Japan, primarily focused on mobile app development. I am a software engineering student from Japan, primarily focused on mobile app development." />
+          <CustomTitle text="Career Milestones: Awards, Internships, and App Development" />
+          <CustomSubTitle text="Since enrolling at Kansai University in 2021, I have participated in and won several business contests and hackathons. I have gained experience in app development using Flutter, contributing to team projects at companies like Wanderlust Inc. and Hanposaki Inc., and have also embarked on personal development projects using Swift." />
           <AboutHistory />
         </div>
         <div
           style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
             width: "50%",
-            padding: "50px",
+            paddingTop: "50px",
             backgroundColor:
               theme.palette.mode === "dark" ? "#18181B" : "white",
           }}

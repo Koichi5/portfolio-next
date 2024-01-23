@@ -49,15 +49,20 @@ const Articles = () => {
     <div
       style={{
         backgroundColor: theme.palette.mode === "dark" ? "#18181B" : "white",
-        padding: "40px",
       }}
     >
-      <CustomTitle text={"Mobile developer working primarily with Flutter"} />
-      <CustomSubTitle
-        text={
-          "I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in."
-        }
-      />
+      <div style={{ width: "60%", padding: "40px" }}>
+        <CustomTitle
+          text={
+            "Writing on Mobile Application Development, Web Application Development and more "
+          }
+        />
+        <CustomSubTitle
+          text={
+            "Here are some of the articles I've written, arranged in the order of their newest first. The main technical topics are mobile app development, along with others related to web development. Please feel free to check out more details on Zenn."
+          }
+        />
+      </div>
       {loading ? (
         <Grid container spacing={2}>
           {Array.from({ length: 10 }).map((_, index) => (

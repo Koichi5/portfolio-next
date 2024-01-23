@@ -12,10 +12,10 @@ function Works() {
       }}
     >
       <div style={{ width: "60%", padding: "40px" }}>
-        <CustomTitle text={"Mobile developer working primarily with Flutter"} />
+        <CustomTitle text={"My Journey as a Mobile Engineer: Internships and Development Experience"} />
         <CustomSubTitle
           text={
-            "I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in."
+            "I have primarily gained experience in team development using Flutter at several companies, and in personal projects, I have developed using Flutter and Swift. Below, I have compiled a list of the applications I've released and my internship experiences."
           }
         />
       </div>

@@ -13,11 +13,11 @@ const Contests = () => {
     >
       <div style={{ width: "60%", padding: "40px" }}>
         <CustomTitle
-          text={"Mobile developer working primarily with Flutter"}
+          text={"Showcase of Hackathons and Plan Contests"}
         />
         <CustomSubTitle
           text={
-            "I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in."
+            "I have participated in hackathons and business plan contests, winning awards in some of them. Below is a summary of these experiences."
           }
         />
       </div>
