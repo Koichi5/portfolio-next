@@ -9,6 +9,7 @@ import PhoneIcon from "@mui/icons-material/LocalPhone";
 import AboutHistory from "./history";
 import CustomTitle from "@/components/title";
 import CustomSubTitle from "@/components/sub_title";
+import { useLocale } from "@/lib/locale/locale";
 
 const CustomContactEmailAndPhone = styled("div")(({ theme }) => ({
   display: "flex",
@@ -17,6 +18,7 @@ const CustomContactEmailAndPhone = styled("div")(({ theme }) => ({
 
 function About() {
   const theme = useTheme();
+  const { t } = useLocale();
   return (
     <div>
       <div style={{ display: "flex" }}>
@@ -28,8 +30,8 @@ function About() {
               theme.palette.mode === "dark" ? "#18181B" : "white",
           }}
         >
-          <CustomTitle text="Career Milestones: Awards, Internships, and App Development" />
-          <CustomSubTitle text="Since enrolling at Kansai University in 2021, I have participated in and won several business contests and hackathons. I have gained experience in app development using Flutter, contributing to team projects at companies like Wanderlust Inc. and Hanposaki Inc., and have also embarked on personal development projects using Swift." />
+          <CustomTitle text={t.ABOUT_TITLE} />
+          <CustomSubTitle text={t.ABOUT_SUBTITLE} />
           <AboutHistory />
         </div>
         <div

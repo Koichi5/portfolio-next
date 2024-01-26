@@ -2,9 +2,12 @@ import CustomTitle from "@/components/title";
 import ContestCardGrid from "./contests_card_grid";
 import { useTheme } from "@mui/material/styles";
 import CustomSubTitle from "@/components/sub_title";
+import { useLocale } from "@/lib/locale/locale";
 
 const Contests = () => {
   const theme = useTheme();
+  const { t } = useLocale();
+
   return (
     <div
       style={{
@@ -12,14 +15,8 @@ const Contests = () => {
       }}
     >
       <div style={{ width: "60%", padding: "40px" }}>
-        <CustomTitle
-          text={"Showcase of Hackathons and Plan Contests"}
-        />
-        <CustomSubTitle
-          text={
-            "I have participated in hackathons and business plan contests, winning awards in some of them. Below is a summary of these experiences."
-          }
-        />
+        <CustomTitle text={t.CONTESTS_TITLE} />
+        <CustomSubTitle text={t.CONTESTS_SUBTITLE} />
       </div>
       <ContestCardGrid />
     </div>

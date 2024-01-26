@@ -2,9 +2,12 @@ import CustomTitle from "@/components/title";
 import WorksCardGrid from "./works_card_grid";
 import { useTheme } from "@mui/material/styles";
 import CustomSubTitle from "@/components/sub_title";
+import { useLocale } from "@/lib/locale/locale";
 
 function Works() {
   const theme = useTheme();
+  const { t } = useLocale();
+
   return (
     <div
       style={{
@@ -12,12 +15,8 @@ function Works() {
       }}
     >
       <div style={{ width: "60%", padding: "40px" }}>
-        <CustomTitle text={"My Journey as a Mobile Engineer: Internships and Development Experience"} />
-        <CustomSubTitle
-          text={
-            "I have primarily gained experience in team development using Flutter at several companies, and in personal projects, I have developed using Flutter and Swift. Below, I have compiled a list of the applications I've released and my internship experiences."
-          }
-        />
+        <CustomTitle text={t.WORKS_TITLE} />
+        <CustomSubTitle text={t.WORKS_SUBTITLE} />
       </div>
       <WorksCardGrid />
     </div>

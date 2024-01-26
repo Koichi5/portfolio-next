@@ -5,6 +5,7 @@ import ArticleItemCard from "@/components/articles/article_item_card";
 import CustomTitle from "@/components/title";
 import CustomSubTitle from "@/components/sub_title";
 import ArticleItemSkeltonCard from "@/components/articles/article_item_skelton_card";
+import { useLocale } from "@/lib/locale/locale";
 
 interface Article {
   id: number;
@@ -18,6 +19,7 @@ interface Article {
 
 const Articles = () => {
   const theme = useTheme();
+  const { t } = useLocale();
   const [loading, setLoading] = useState(false);
   const [articles, setArticles] = useState<Article[]>([]);
 
@@ -53,16 +55,8 @@ const Articles = () => {
       }}
     >
       <div style={{ width: "60%" }}>
-        <CustomTitle
-          text={
-            "Writing on Mobile Application Development, Web Application Development and more "
-          }
-        />
-        <CustomSubTitle
-          text={
-            "Here are some of the articles I've written, arranged in the order of their newest first. The main technical topics are mobile app development, along with others related to web development. Please feel free to check out more details on Zenn."
-          }
-        />
+        <CustomTitle text={t.ARTICLES_TITLE} />
+        <CustomSubTitle text={t.ARTICLES_SUBTITLE} />
       </div>
       {loading ? (
         <Grid container spacing={2}>
