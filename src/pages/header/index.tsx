@@ -12,6 +12,7 @@ import Skills from "../skills";
 import Works from "../works";
 import Welcome from "../welcome";
 import { useTabContext } from "@/components/tab_context";
+import LanguageSwitchButton from "@/components/language_switch_button";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#252529" : "white",
@@ -126,7 +127,10 @@ export default function Header() {
             <StyledTab label="Contests" value="6" />
           </StyledTabs>
         </StyledBox>
-        <ThemeModeButton />
+        <div style={{ display: "flex", alignContent: "center" }}>
+          <LanguageSwitchButton />
+          <ThemeModeButton />
+        </div>
       </div>
       <div>{renderTabContent(value)}</div>
     </div>
