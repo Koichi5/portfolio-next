@@ -1,10 +1,13 @@
 import CustomSubTitle from "@/components/sub_title";
 import CustomTitle from "@/components/title";
 import WelcomeImageGrid from "@/components/welcome/welcome_image_row";
+import { useLocale } from "@/lib/locale/locale";
 import { useTheme } from "@mui/material/styles";
 
 function Welcome() {
   const theme = useTheme();
+  const { t } = useLocale();
+
   return (
     <div
       style={{
@@ -12,8 +15,8 @@ function Welcome() {
       }}
     >
       <div style={{ width: "60%", padding: "40px" }}>
-        <CustomTitle text={"Mobile developer working primarily with Flutter"} />
-        <CustomSubTitle text="I am a software engineering student from Japan, primarily focused on mobile app development. This portfolio compiles my experiences from internships and contests I have participated in." />
+        <CustomTitle text={t.WELCOME_TITLE} />
+        <CustomSubTitle text={t.WELCOME_SUBTITLE} />
       </div>
       <WelcomeImageGrid />
     </div>

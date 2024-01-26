@@ -5,6 +5,7 @@ import SkillsOthers from "./others";
 import Divider from "@mui/material/Divider";
 import CustomTitle from "@/components/title";
 import CustomSubTitle from "@/components/sub_title";
+import { useLocale } from "@/lib/locale/locale";
 
 const CustomDivider = styled(Divider)(({ theme }) => ({
   marginLeft: "50px",
@@ -22,6 +23,7 @@ const CustomSkillWrapper = styled("div")(() => ({
 
 function Skills() {
   const theme = useTheme();
+  const { t } = useLocale();
 
   return (
     <div
@@ -30,12 +32,8 @@ function Skills() {
       }}
     >
       <div style={{ width: "60%", padding: "40px" }}>
-        <CustomTitle text={"My Skills and Proficiency"} />
-        <CustomSubTitle
-          text={
-            "A comprehensive overview of my skills in mobile app development, specializing in Flutter and Swift, alongside my capabilities in web development and Python implementation. "
-          }
-        />
+        <CustomTitle text={t.SKILLS_TITLE} />
+        <CustomSubTitle text={t.SKILLS_SUBTITLE} />
       </div>
       <div style={{ display: "flex", paddingBottom: "40px" }}>
         <CustomDivider orientation="vertical" variant="middle" flexItem />
