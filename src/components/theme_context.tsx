@@ -18,7 +18,7 @@ interface CustomThemeProviderProps {
   children: ReactNode;
 }
 
-// カスタムテーマプロバイダーコンポーネント
+// カスタムテーマプロバイダー
 export const CustomThemeProvider = ({ children }: CustomThemeProviderProps) => {
   const [mode, setMode] = useState<"light" | "dark">("light");
 
@@ -32,31 +32,11 @@ export const CustomThemeProvider = ({ children }: CustomThemeProviderProps) => {
     []
   );
 
-  // テーマ設定
   const theme = useMemo(
     () =>
       createTheme({
         palette: {
-          mode: mode, // ここでmode変数を使用
-          ...(mode === "light"
-            ? {
-                // ライトモードの時のスタイル
-                header: {
-                  color: "#555555",
-                  backgroundColor: "#DCDCDC",
-                  bottomLineColor:
-                    "linear-gradient(90deg, #DCDCDC, #2CD4BF, #DCDCDC)",
-                },
-              }
-            : {
-                // ダークモードの時のスタイル
-                header: {
-                  color: "#DCDCDC",
-                  backgroundColor: "#252529",
-                  bottomLineColor:
-                    "linear-gradient(90deg, #252529, #2CD4BF, #252529)",
-                },
-              }),
+          mode: mode,
         },
       }),
     [mode]
@@ -69,5 +49,4 @@ export const CustomThemeProvider = ({ children }: CustomThemeProviderProps) => {
   );
 };
 
-// テーマコンテキストを使用するためのフック
 export const useCustomTheme = () => useContext(ColorModeContext);

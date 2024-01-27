@@ -5,12 +5,12 @@ import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import { IconButton } from "@mui/material";
 import { useCustomTheme } from "./theme_context";
 
-const DarkModeIcon = styled(LightModeOutlinedIcon)(({theme}) => ({
+const DarkModeIcon = styled(Brightness2OutlinedIcon)(({theme}) => ({
   strokeWidth: 0.5,
   color: "#2CD4BF"
 }))
 
-const LightModeIcon = styled(Brightness2OutlinedIcon)(({theme}) => ({
+const LightModeIcon = styled(LightModeOutlinedIcon)(({theme}) => ({
   strokeWidth: 0.5,
   color: "#252529"
 }))
